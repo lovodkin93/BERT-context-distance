@@ -1,0 +1,1288 @@
+	run	task	split	label	fn_count	fp_count	tn_count	tp_count	stratifier	stratum_key
+0	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	awareness	69	66	615	321		
+1	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	change_of_location	43	13	1003	12		
+2	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	change_of_state	141	128	547	255		
+3	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	changes_possession	51	11	986	23		
+4	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	created	56	24	974	17		
+5	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	destroyed	40	1	1030	0		
+6	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	existed_after	102	162	180	627		
+7	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	existed_before	130	119	253	569		
+8	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	existed_during	22	119	73	857		
+9	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	exists_as_physical	112	73	636	250		
+10	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	instigation	123	87	608	253		
+11	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	location_of_event	68	15	974	14		
+12	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	makes_physical_contact	92	31	890	58		
+13	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	manipulated_by_another	110	130	335	496		
+14	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	predicate_changed_argument	140	142	529	260		
+15	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	sentient	62	36	791	182		
+16	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	stationary	45	9	1009	8		
+17	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	volition	74	74	647	276		
+18	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_macro_avg_	1480	1240	12080	4478		
+19	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_micro_avg_	1480	1240	12080	4478		
+20	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_0_	550	406	4512	2020	span_distance	0.0
+21	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_1_	267	220	2058	641	span_distance	1.0
+22	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_2_	141	137	1169	335	span_distance	2.0
+23	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_3_	96	83	936	289	span_distance	3.0
+24	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_4_	84	83	704	245	span_distance	4.0
+25	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_5_	61	68	582	171	span_distance	5.0
+26	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_6_	42	33	357	90	span_distance	6.0
+27	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_7_	51	51	358	116	span_distance	7.0
+28	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_8_	25	33	265	91	span_distance	8.0
+29	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_9_	21	19	225	113	span_distance	9.0
+30	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_10_	21	32	221	86	span_distance	10.0
+31	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_11_	26	3	115	36	span_distance	11.0
+32	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_12_	17	7	98	40	span_distance	12.0
+33	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_13_	11	19	85	29	span_distance	13.0
+34	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_14_	3	3	35	31	span_distance	14.0
+35	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_15_	11	4	36	21	span_distance	15.0
+36	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_16_	5	0	36	13	span_distance	16.0
+37	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_17_	12	2	44	14	span_distance	17.0
+38	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	11	30	9	span_distance	18.0
+39	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_19_	4	6	55	25	span_distance	19.0
+40	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+41	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	2	23	7	span_distance	21.0
+42	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_22_	9	4	19	4	span_distance	22.0
+43	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	2	16	0	span_distance	23.0
+44	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_24_	4	4	43	21	span_distance	24.0
+45	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	1	10	5	span_distance	25.0
+46	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_27_	7	5	14	10	span_distance	27.0
+47	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+48	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	awareness	49	58	619	329		
+49	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	change_of_location	44	10	987	14		
+50	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	change_of_state	144	129	530	252		
+51	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	changes_possession	52	3	972	28		
+52	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	created	56	17	967	15		
+53	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	destroyed	24	0	1029	2		
+54	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	existed_after	89	146	161	659		
+55	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	existed_before	113	129	223	590		
+56	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	existed_during	19	81	65	890		
+57	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	exists_as_physical	67	77	677	234		
+58	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	instigation	100	92	596	267		
+59	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	location_of_event	81	2	962	10		
+60	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	makes_physical_contact	77	20	919	39		
+61	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	manipulated_by_another	113	110	335	497		
+62	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	predicate_changed_argument	146	127	532	250		
+63	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	sentient	26	43	798	188		
+64	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	stationary	20	3	1027	5		
+65	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	volition	60	76	632	287		
+66	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_macro_avg_	1280	1123	12031	4556		
+67	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_micro_avg_	1280	1123	12031	4556		
+68	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_0_	484	379	4365	1936	span_distance	0.0
+69	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_1_	253	203	2240	796	span_distance	1.0
+70	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_2_	77	117	1021	279	span_distance	2.0
+71	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_3_	124	94	1005	307	span_distance	3.0
+72	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_4_	59	71	671	207	span_distance	4.0
+73	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_5_	39	47	472	162	span_distance	5.0
+74	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_6_	60	49	438	137	span_distance	6.0
+75	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_7_	26	36	236	80	span_distance	7.0
+76	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_8_	38	12	225	103	span_distance	8.0
+77	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_9_	17	20	210	77	span_distance	9.0
+78	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_10_	9	10	155	60	span_distance	10.0
+79	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_11_	14	12	97	39	span_distance	11.0
+80	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_12_	16	17	175	62	span_distance	12.0
+81	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_13_	7	4	89	62	span_distance	13.0
+82	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_14_	7	8	107	40	span_distance	14.0
+83	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_15_	8	12	146	50	span_distance	15.0
+84	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_16_	3	1	39	11	span_distance	16.0
+85	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_17_	2	3	37	12	span_distance	17.0
+86	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	8	57	20	span_distance	18.0
+87	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_19_	9	0	26	19	span_distance	19.0
+88	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_20_	6	6	40	20	span_distance	20.0
+89	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_21_	6	0	46	20	span_distance	21.0
+90	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	3	11	3	span_distance	22.0
+91	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+92	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+93	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_27_	2	2	25	7	span_distance	27.0
+94	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_28_	1	0	8	9	span_distance	28.0
+95	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_29_	1	1	12	4	span_distance	29.0
+96	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	1	27	6	span_distance	30.0
+97	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+98	../../jiant_outputs/bert-base-uncased-mix_0-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+99	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	awareness	31	37	644	359		
+100	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	change_of_location	36	28	988	19		
+101	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	change_of_state	120	101	574	276		
+102	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	changes_possession	41	13	984	33		
+103	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	created	44	25	973	29		
+104	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	destroyed	36	3	1028	4		
+105	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	existed_after	91	128	214	638		
+106	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	existed_before	90	73	299	609		
+107	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	existed_during	29	105	87	850		
+108	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	exists_as_physical	55	44	665	307		
+109	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	instigation	50	51	644	326		
+110	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	location_of_event	52	24	965	30		
+111	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	makes_physical_contact	58	46	875	92		
+112	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	manipulated_by_another	66	101	364	540		
+113	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	predicate_changed_argument	129	91	580	271		
+114	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	sentient	17	15	812	227		
+115	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	stationary	32	11	1007	21		
+116	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	volition	34	38	683	316		
+117	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_macro_avg_	1011	934	12386	4947		
+118	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_micro_avg_	1011	934	12386	4947		
+119	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_0_	363	310	4608	2207	span_distance	0.0
+120	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_1_	200	165	2113	708	span_distance	1.0
+121	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_2_	95	105	1201	381	span_distance	2.0
+122	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_3_	66	64	955	319	span_distance	3.0
+123	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_4_	71	62	725	258	span_distance	4.0
+124	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_5_	39	51	599	193	span_distance	5.0
+125	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_6_	28	23	367	104	span_distance	6.0
+126	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_7_	33	42	367	134	span_distance	7.0
+127	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_8_	19	19	279	97	span_distance	8.0
+128	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_9_	22	15	229	112	span_distance	9.0
+129	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_10_	6	26	227	101	span_distance	10.0
+130	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_11_	21	4	114	41	span_distance	11.0
+131	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_12_	5	7	98	52	span_distance	12.0
+132	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_13_	7	10	94	33	span_distance	13.0
+133	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	1	37	32	span_distance	14.0
+134	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	4	36	25	span_distance	15.0
+135	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_16_	1	0	36	17	span_distance	16.0
+136	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+137	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	4	37	9	span_distance	18.0
+138	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	5	56	27	span_distance	19.0
+139	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+140	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	1	24	7	span_distance	21.0
+141	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	1	22	9	span_distance	22.0
+142	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+143	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_24_	4	2	45	21	span_distance	24.0
+144	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_25_	1	3	8	6	span_distance	25.0
+145	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+146	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+147	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	awareness	25	30	647	353		
+148	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	change_of_location	28	14	983	30		
+149	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	change_of_state	127	101	558	269		
+150	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	changes_possession	40	8	967	40		
+151	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	created	41	12	972	30		
+152	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	destroyed	23	2	1027	3		
+153	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	existed_after	81	104	203	667		
+154	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	existed_before	86	75	277	617		
+155	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	existed_during	21	52	94	888		
+156	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	exists_as_physical	38	39	715	263		
+157	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	instigation	49	32	656	318		
+158	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	location_of_event	60	14	950	31		
+159	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	makes_physical_contact	55	18	921	61		
+160	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	manipulated_by_another	60	89	356	550		
+161	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	predicate_changed_argument	128	87	572	268		
+162	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	sentient	7	20	821	207		
+163	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	stationary	14	4	1026	11		
+164	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	volition	30	33	675	317		
+165	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_macro_avg_	913	734	12420	4923		
+166	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_micro_avg_	913	734	12420	4923		
+167	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_0_	317	268	4476	2103	span_distance	0.0
+168	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_1_	204	144	2299	845	span_distance	1.0
+169	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_2_	71	64	1074	285	span_distance	2.0
+170	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_3_	79	62	1037	352	span_distance	3.0
+171	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_4_	52	43	699	214	span_distance	4.0
+172	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_5_	26	36	483	175	span_distance	5.0
+173	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_6_	38	37	450	159	span_distance	6.0
+174	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_7_	11	13	259	95	span_distance	7.0
+175	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_8_	28	5	232	113	span_distance	8.0
+176	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_9_	10	5	225	84	span_distance	9.0
+177	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_10_	6	4	161	63	span_distance	10.0
+178	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_11_	9	7	102	44	span_distance	11.0
+179	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_12_	14	9	183	64	span_distance	12.0
+180	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_13_	5	2	91	64	span_distance	13.0
+181	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_14_	7	8	107	40	span_distance	14.0
+182	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_15_	4	6	152	54	span_distance	15.0
+183	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	1	39	13	span_distance	16.0
+184	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_17_	4	2	38	10	span_distance	17.0
+185	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	2	63	20	span_distance	18.0
+186	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+187	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	4	42	23	span_distance	20.0
+188	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	3	43	22	span_distance	21.0
+189	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+190	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+191	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+192	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+193	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	0	8	10	span_distance	28.0
+194	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_29_	5	0	13	0	span_distance	29.0
+195	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+196	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+197	../../jiant_outputs/bert-base-uncased-mix_10-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	6	20	9	span_distance	33.0
+198	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	awareness	34	38	643	356		
+199	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	change_of_location	36	23	993	19		
+200	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	change_of_state	128	92	583	268		
+201	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	changes_possession	43	13	984	31		
+202	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	created	47	19	979	26		
+203	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	destroyed	38	2	1029	2		
+204	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	existed_after	90	128	214	639		
+205	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	existed_before	86	81	291	613		
+206	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	existed_during	28	108	84	851		
+207	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	exists_as_physical	52	43	666	310		
+208	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	instigation	50	45	650	326		
+209	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	location_of_event	54	24	965	28		
+210	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	makes_physical_contact	58	45	876	92		
+211	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	manipulated_by_another	60	101	364	546		
+212	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	predicate_changed_argument	137	85	586	263		
+213	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	sentient	15	16	811	229		
+214	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	stationary	34	11	1007	19		
+215	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	volition	35	37	684	315		
+216	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_macro_avg_	1025	911	12409	4933		
+217	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_micro_avg_	1025	911	12409	4933		
+218	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_0_	368	305	4613	2202	span_distance	0.0
+219	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_1_	200	162	2116	708	span_distance	1.0
+220	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_2_	97	98	1208	379	span_distance	2.0
+221	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_3_	66	63	956	319	span_distance	3.0
+222	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_4_	72	58	729	257	span_distance	4.0
+223	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_5_	41	50	600	191	span_distance	5.0
+224	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_6_	27	23	367	105	span_distance	6.0
+225	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_7_	33	40	369	134	span_distance	7.0
+226	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_8_	19	20	278	97	span_distance	8.0
+227	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_9_	24	13	231	110	span_distance	9.0
+228	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_10_	6	26	227	101	span_distance	10.0
+229	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_11_	22	4	114	40	span_distance	11.0
+230	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_12_	6	8	97	51	span_distance	12.0
+231	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_13_	8	9	95	32	span_distance	13.0
+232	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	1	37	32	span_distance	14.0
+233	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	4	36	25	span_distance	15.0
+234	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_16_	0	0	36	18	span_distance	16.0
+235	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+236	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	5	36	9	span_distance	18.0
+237	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	5	56	27	span_distance	19.0
+238	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+239	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	1	24	7	span_distance	21.0
+240	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	1	22	9	span_distance	22.0
+241	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	4	14	0	span_distance	23.0
+242	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_24_	4	2	45	21	span_distance	24.0
+243	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	2	9	5	span_distance	25.0
+244	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+245	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+246	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	awareness	24	28	649	354		
+247	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	change_of_location	28	11	986	30		
+248	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	change_of_state	134	86	573	262		
+249	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	changes_possession	40	7	968	40		
+250	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	created	47	7	977	24		
+251	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	destroyed	24	2	1027	2		
+252	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	existed_after	75	105	202	673		
+253	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	existed_before	82	77	275	621		
+254	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	existed_during	22	52	94	887		
+255	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	exists_as_physical	34	41	713	267		
+256	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	instigation	49	30	658	318		
+257	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	location_of_event	60	8	956	31		
+258	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	makes_physical_contact	53	17	922	63		
+259	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	manipulated_by_another	58	90	355	552		
+260	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	predicate_changed_argument	133	81	578	263		
+261	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	sentient	7	22	819	207		
+262	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	stationary	17	5	1025	8		
+263	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	volition	30	32	676	317		
+264	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_macro_avg_	917	701	12453	4919		
+265	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_micro_avg_	917	701	12453	4919		
+266	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_0_	313	254	4490	2107	span_distance	0.0
+267	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_1_	210	135	2308	839	span_distance	1.0
+268	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_2_	71	66	1072	285	span_distance	2.0
+269	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_3_	75	62	1037	356	span_distance	3.0
+270	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_4_	49	38	704	217	span_distance	4.0
+271	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_5_	27	32	487	174	span_distance	5.0
+272	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_6_	42	38	449	155	span_distance	6.0
+273	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_7_	12	14	258	94	span_distance	7.0
+274	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_8_	28	5	232	113	span_distance	8.0
+275	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_9_	12	4	226	82	span_distance	9.0
+276	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_10_	5	3	162	64	span_distance	10.0
+277	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_11_	11	7	102	42	span_distance	11.0
+278	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_12_	14	8	184	64	span_distance	12.0
+279	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_13_	4	2	91	65	span_distance	13.0
+280	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_14_	6	8	107	41	span_distance	14.0
+281	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_15_	5	5	153	53	span_distance	15.0
+282	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	2	38	13	span_distance	16.0
+283	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_17_	4	2	38	10	span_distance	17.0
+284	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	2	63	20	span_distance	18.0
+285	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+286	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	4	42	23	span_distance	20.0
+287	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	3	43	22	span_distance	21.0
+288	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+289	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+290	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+291	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_27_	4	1	26	5	span_distance	27.0
+292	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	0	8	10	span_distance	28.0
+293	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_29_	5	0	13	0	span_distance	29.0
+294	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+295	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+296	../../jiant_outputs/bert-base-uncased-mix_11-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	6	20	9	span_distance	33.0
+297	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	awareness	34	37	644	356		
+298	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	change_of_location	36	24	992	19		
+299	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	change_of_state	131	91	584	265		
+300	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	changes_possession	41	13	984	33		
+301	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	created	48	19	979	25		
+302	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	destroyed	38	2	1029	2		
+303	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	existed_after	93	129	213	636		
+304	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	existed_before	86	83	289	613		
+305	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	existed_during	26	107	85	853		
+306	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	exists_as_physical	52	45	664	310		
+307	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	instigation	50	44	651	326		
+308	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	location_of_event	54	24	965	28		
+309	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	makes_physical_contact	59	45	876	91		
+310	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	manipulated_by_another	57	101	364	549		
+311	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	predicate_changed_argument	135	84	587	265		
+312	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	sentient	16	17	810	228		
+313	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	stationary	34	11	1007	19		
+314	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	volition	34	36	685	316		
+315	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_macro_avg_	1024	912	12408	4934		
+316	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_micro_avg_	1024	912	12408	4934		
+317	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_0_	371	306	4612	2199	span_distance	0.0
+318	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_1_	197	162	2116	711	span_distance	1.0
+319	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_2_	96	96	1210	380	span_distance	2.0
+320	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_3_	66	63	956	319	span_distance	3.0
+321	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_4_	72	59	728	257	span_distance	4.0
+322	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_5_	41	52	598	191	span_distance	5.0
+323	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_6_	27	22	368	105	span_distance	6.0
+324	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_7_	33	40	369	134	span_distance	7.0
+325	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_8_	18	19	279	98	span_distance	8.0
+326	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_9_	24	14	230	110	span_distance	9.0
+327	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_10_	6	25	228	101	span_distance	10.0
+328	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_11_	23	4	114	39	span_distance	11.0
+329	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_12_	6	8	97	51	span_distance	12.0
+330	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_13_	8	9	95	32	span_distance	13.0
+331	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	2	36	32	span_distance	14.0
+332	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	4	36	25	span_distance	15.0
+333	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_16_	0	0	36	18	span_distance	16.0
+334	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+335	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	5	36	9	span_distance	18.0
+336	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	5	56	27	span_distance	19.0
+337	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+338	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	1	24	7	span_distance	21.0
+339	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	1	22	9	span_distance	22.0
+340	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	4	14	0	span_distance	23.0
+341	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_24_	4	2	45	21	span_distance	24.0
+342	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	2	9	5	span_distance	25.0
+343	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+344	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+345	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	awareness	25	28	649	353		
+346	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	change_of_location	28	12	985	30		
+347	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	change_of_state	134	88	571	262		
+348	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	changes_possession	39	7	968	41		
+349	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	created	47	7	977	24		
+350	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	destroyed	24	3	1026	2		
+351	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	existed_after	72	104	203	676		
+352	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	existed_before	81	78	274	622		
+353	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	existed_during	22	53	93	887		
+354	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	exists_as_physical	38	42	712	263		
+355	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	instigation	49	29	659	318		
+356	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	location_of_event	60	8	956	31		
+357	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	makes_physical_contact	52	15	924	64		
+358	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	manipulated_by_another	57	92	353	553		
+359	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	predicate_changed_argument	131	78	581	265		
+360	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	sentient	6	22	819	208		
+361	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	stationary	16	5	1025	9		
+362	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	volition	31	32	676	316		
+363	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_macro_avg_	912	703	12451	4924		
+364	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_micro_avg_	912	703	12451	4924		
+365	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_0_	309	254	4490	2111	span_distance	0.0
+366	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_1_	207	132	2311	842	span_distance	1.0
+367	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_2_	70	68	1070	286	span_distance	2.0
+368	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_3_	77	61	1038	354	span_distance	3.0
+369	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_4_	48	40	702	218	span_distance	4.0
+370	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_5_	29	33	486	172	span_distance	5.0
+371	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_6_	42	38	449	155	span_distance	6.0
+372	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_7_	13	14	258	93	span_distance	7.0
+373	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_8_	28	6	231	113	span_distance	8.0
+374	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_9_	13	4	226	81	span_distance	9.0
+375	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_10_	3	3	162	66	span_distance	10.0
+376	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_11_	11	5	104	42	span_distance	11.0
+377	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_12_	13	9	183	65	span_distance	12.0
+378	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_13_	5	2	91	64	span_distance	13.0
+379	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_14_	6	9	106	41	span_distance	14.0
+380	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_15_	5	5	153	53	span_distance	15.0
+381	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	2	38	13	span_distance	16.0
+382	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_17_	4	2	38	10	span_distance	17.0
+383	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	2	63	20	span_distance	18.0
+384	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+385	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	4	42	23	span_distance	20.0
+386	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	3	43	22	span_distance	21.0
+387	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+388	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+389	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+390	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_27_	4	1	26	5	span_distance	27.0
+391	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	0	8	10	span_distance	28.0
+392	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_29_	5	0	13	0	span_distance	29.0
+393	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+394	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+395	../../jiant_outputs/bert-base-uncased-mix_12-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	6	20	9	span_distance	33.0
+396	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	awareness	51	57	624	339		
+397	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	change_of_location	43	14	1002	12		
+398	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	change_of_state	123	146	529	273		
+399	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	changes_possession	48	9	988	26		
+400	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	created	53	20	978	20		
+401	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	destroyed	40	0	1031	0		
+402	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	existed_after	78	184	158	651		
+403	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	existed_before	116	119	253	583		
+404	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	existed_during	16	122	70	863		
+405	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	exists_as_physical	88	73	636	274		
+406	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	instigation	92	73	622	284		
+407	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	location_of_event	65	18	971	17		
+408	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	makes_physical_contact	84	43	878	66		
+409	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	manipulated_by_another	90	127	338	516		
+410	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	predicate_changed_argument	130	150	521	270		
+411	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	sentient	53	30	797	191		
+412	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	stationary	44	9	1009	9		
+413	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	volition	59	61	660	291		
+414	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_macro_avg_	1273	1255	12065	4685		
+415	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_micro_avg_	1273	1255	12065	4685		
+416	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_0_	462	418	4500	2108	span_distance	0.0
+417	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_1_	237	223	2055	671	span_distance	1.0
+418	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_2_	132	137	1169	344	span_distance	2.0
+419	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_3_	91	81	938	294	span_distance	3.0
+420	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_4_	73	77	710	256	span_distance	4.0
+421	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_5_	52	68	582	180	span_distance	5.0
+422	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_6_	37	36	354	95	span_distance	6.0
+423	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_7_	41	47	362	126	span_distance	7.0
+424	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_8_	27	37	261	89	span_distance	8.0
+425	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_9_	20	16	228	114	span_distance	9.0
+426	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_10_	15	36	217	92	span_distance	10.0
+427	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_11_	18	6	112	44	span_distance	11.0
+428	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_12_	9	11	94	48	span_distance	12.0
+429	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_13_	6	16	88	34	span_distance	13.0
+430	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	3	35	32	span_distance	14.0
+431	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_15_	8	3	37	24	span_distance	15.0
+432	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_16_	6	0	36	12	span_distance	16.0
+433	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_17_	4	0	46	22	span_distance	17.0
+434	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	10	31	9	span_distance	18.0
+435	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	9	52	27	span_distance	19.0
+436	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+437	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_21_	7	4	21	4	span_distance	21.0
+438	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_22_	5	4	19	8	span_distance	22.0
+439	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	4	14	0	span_distance	23.0
+440	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+441	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	1	10	5	span_distance	25.0
+442	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_27_	5	4	15	12	span_distance	27.0
+443	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	val	_span_distance_28_	1	0	12	5	span_distance	28.0
+444	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	awareness	41	45	632	337		
+445	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	change_of_location	47	9	988	11		
+446	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	change_of_state	145	145	514	251		
+447	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	changes_possession	50	3	972	30		
+448	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	created	57	14	970	14		
+449	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	destroyed	24	0	1029	2		
+450	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	existed_after	68	149	158	680		
+451	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	existed_before	96	129	223	607		
+452	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	existed_during	14	79	67	895		
+453	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	exists_as_physical	64	60	694	237		
+454	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	instigation	84	56	632	283		
+455	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	location_of_event	74	9	955	17		
+456	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	makes_physical_contact	74	23	916	42		
+457	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	manipulated_by_another	79	108	337	531		
+458	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	predicate_changed_argument	140	144	515	256		
+459	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	sentient	21	32	809	193		
+460	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	stationary	17	1	1029	8		
+461	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	volition	48	55	653	299		
+462	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_macro_avg_	1143	1061	12093	4693		
+463	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_micro_avg_	1143	1061	12093	4693		
+464	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_0_	439	370	4374	1981	span_distance	0.0
+465	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_1_	243	195	2248	806	span_distance	1.0
+466	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_2_	68	97	1041	288	span_distance	2.0
+467	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_3_	101	82	1017	330	span_distance	3.0
+468	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_4_	56	66	676	210	span_distance	4.0
+469	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_5_	32	45	474	169	span_distance	5.0
+470	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_6_	46	46	441	151	span_distance	6.0
+471	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_7_	23	34	238	83	span_distance	7.0
+472	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_8_	33	18	219	108	span_distance	8.0
+473	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_9_	19	15	215	75	span_distance	9.0
+474	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_10_	7	10	155	62	span_distance	10.0
+475	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_11_	10	9	100	43	span_distance	11.0
+476	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_12_	15	15	177	63	span_distance	12.0
+477	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_13_	7	5	88	62	span_distance	13.0
+478	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_14_	8	10	105	39	span_distance	14.0
+479	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_15_	7	14	144	51	span_distance	15.0
+480	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_16_	3	2	38	11	span_distance	16.0
+481	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+482	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	7	58	20	span_distance	18.0
+483	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+484	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_20_	2	6	40	24	span_distance	20.0
+485	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_21_	5	1	45	21	span_distance	21.0
+486	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+487	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+488	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+489	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	2	25	6	span_distance	27.0
+490	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_28_	1	1	7	9	span_distance	28.0
+491	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_29_	1	1	12	4	span_distance	29.0
+492	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+493	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+494	../../jiant_outputs/bert-base-uncased-mix_1-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+495	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	awareness	49	54	627	341		
+496	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	change_of_location	44	13	1003	11		
+497	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	change_of_state	116	140	535	280		
+498	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	changes_possession	47	9	988	27		
+499	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	created	53	18	980	20		
+500	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	destroyed	40	0	1031	0		
+501	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	existed_after	74	189	153	655		
+502	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	existed_before	105	125	247	594		
+503	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	existed_during	16	122	70	863		
+504	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	exists_as_physical	79	72	637	283		
+505	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	instigation	85	63	632	291		
+506	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	location_of_event	65	19	970	17		
+507	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	makes_physical_contact	78	44	877	72		
+508	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	manipulated_by_another	79	121	344	527		
+509	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	predicate_changed_argument	128	143	528	272		
+510	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	sentient	41	31	796	203		
+511	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	stationary	42	9	1009	11		
+512	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	volition	50	63	658	300		
+513	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_macro_avg_	1191	1235	12085	4767		
+514	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_micro_avg_	1191	1235	12085	4767		
+515	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_0_	426	413	4505	2144	span_distance	0.0
+516	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_1_	223	219	2059	685	span_distance	1.0
+517	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_2_	122	131	1175	354	span_distance	2.0
+518	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_3_	82	84	935	303	span_distance	3.0
+519	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_4_	76	71	716	253	span_distance	4.0
+520	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_5_	50	69	581	182	span_distance	5.0
+521	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_6_	37	31	359	95	span_distance	6.0
+522	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_7_	37	47	362	130	span_distance	7.0
+523	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_8_	28	38	260	88	span_distance	8.0
+524	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_9_	19	19	225	115	span_distance	9.0
+525	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_10_	13	37	216	94	span_distance	10.0
+526	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_11_	20	5	113	42	span_distance	11.0
+527	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_12_	5	10	95	52	span_distance	12.0
+528	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_13_	6	16	88	34	span_distance	13.0
+529	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+530	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	3	37	25	span_distance	15.0
+531	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_16_	6	0	36	12	span_distance	16.0
+532	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_17_	3	0	46	23	span_distance	17.0
+533	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	12	29	9	span_distance	18.0
+534	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	8	53	27	span_distance	19.0
+535	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+536	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	3	22	7	span_distance	21.0
+537	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_22_	5	4	19	8	span_distance	22.0
+538	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+539	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+540	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	0	11	5	span_distance	25.0
+541	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+542	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	val	_span_distance_28_	1	0	12	5	span_distance	28.0
+543	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	awareness	38	41	636	340		
+544	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	change_of_location	40	7	990	18		
+545	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	change_of_state	132	140	519	264		
+546	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	changes_possession	48	5	970	32		
+547	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	created	57	13	971	14		
+548	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+549	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	existed_after	68	157	150	680		
+550	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	existed_before	98	129	223	605		
+551	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	existed_during	15	76	70	894		
+552	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	exists_as_physical	56	54	700	245		
+553	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	instigation	78	53	635	289		
+554	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	location_of_event	71	6	958	20		
+555	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	makes_physical_contact	77	20	919	39		
+556	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	manipulated_by_another	70	107	338	540		
+557	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	predicate_changed_argument	129	137	522	267		
+558	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	sentient	16	29	812	198		
+559	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	stationary	15	3	1027	10		
+560	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	volition	42	51	657	305		
+561	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_macro_avg_	1075	1028	12126	4761		
+562	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_micro_avg_	1075	1028	12126	4761		
+563	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_0_	412	360	4384	2008	span_distance	0.0
+564	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_1_	235	192	2251	814	span_distance	1.0
+565	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_2_	66	97	1041	290	span_distance	2.0
+566	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_3_	96	76	1023	335	span_distance	3.0
+567	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_4_	51	64	678	215	span_distance	4.0
+568	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_5_	31	42	477	170	span_distance	5.0
+569	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_6_	45	47	440	152	span_distance	6.0
+570	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_7_	20	28	244	86	span_distance	7.0
+571	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_8_	31	15	222	110	span_distance	8.0
+572	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_9_	14	14	216	80	span_distance	9.0
+573	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_10_	7	9	156	62	span_distance	10.0
+574	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_11_	10	11	98	43	span_distance	11.0
+575	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_12_	12	15	177	66	span_distance	12.0
+576	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_13_	7	5	88	62	span_distance	13.0
+577	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_14_	6	10	105	41	span_distance	14.0
+578	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_15_	6	12	146	52	span_distance	15.0
+579	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_16_	3	2	38	11	span_distance	16.0
+580	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+581	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_18_	4	6	59	21	span_distance	18.0
+582	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+583	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	8	38	23	span_distance	20.0
+584	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	1	45	22	span_distance	21.0
+585	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_22_	0	0	14	4	span_distance	22.0
+586	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+587	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+588	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	2	25	6	span_distance	27.0
+589	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	1	7	10	span_distance	28.0
+590	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_29_	1	1	12	4	span_distance	29.0
+591	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+592	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+593	../../jiant_outputs/bert-base-uncased-mix_2-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+594	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	awareness	43	52	629	347		
+595	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	change_of_location	43	19	997	12		
+596	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	change_of_state	119	137	538	277		
+597	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	changes_possession	48	10	987	26		
+598	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	created	53	17	981	20		
+599	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	destroyed	40	0	1031	0		
+600	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	existed_after	70	182	160	659		
+601	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	existed_before	106	118	254	593		
+602	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	existed_during	16	123	69	863		
+603	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	exists_as_physical	71	73	636	291		
+604	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	instigation	83	60	635	293		
+605	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	location_of_event	65	18	971	17		
+606	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	makes_physical_contact	70	44	877	80		
+607	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	manipulated_by_another	74	120	345	532		
+608	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	predicate_changed_argument	126	148	523	274		
+609	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	sentient	35	32	795	209		
+610	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	stationary	39	10	1008	14		
+611	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	volition	49	61	660	301		
+612	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_macro_avg_	1150	1224	12096	4808		
+613	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_micro_avg_	1150	1224	12096	4808		
+614	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_0_	407	418	4500	2163	span_distance	0.0
+615	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_1_	222	214	2064	686	span_distance	1.0
+616	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_2_	113	124	1182	363	span_distance	2.0
+617	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_3_	81	85	934	304	span_distance	3.0
+618	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_4_	74	69	718	255	span_distance	4.0
+619	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_5_	51	70	580	181	span_distance	5.0
+620	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_6_	37	30	360	95	span_distance	6.0
+621	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_7_	36	48	361	131	span_distance	7.0
+622	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_8_	23	37	261	93	span_distance	8.0
+623	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_9_	16	21	223	118	span_distance	9.0
+624	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_10_	13	35	218	94	span_distance	10.0
+625	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_11_	22	4	114	40	span_distance	11.0
+626	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_12_	6	9	96	51	span_distance	12.0
+627	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_13_	5	16	88	35	span_distance	13.0
+628	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+629	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	3	37	25	span_distance	15.0
+630	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_16_	6	0	36	12	span_distance	16.0
+631	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	0	46	25	span_distance	17.0
+632	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	12	29	9	span_distance	18.0
+633	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	7	54	27	span_distance	19.0
+634	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+635	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	3	22	7	span_distance	21.0
+636	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_22_	5	4	19	8	span_distance	22.0
+637	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	2	16	0	span_distance	23.0
+638	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+639	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	1	10	5	span_distance	25.0
+640	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+641	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+642	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	awareness	32	37	640	346		
+643	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	change_of_location	38	8	989	20		
+644	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	change_of_state	127	141	518	269		
+645	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	changes_possession	48	5	970	32		
+646	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	created	57	12	972	14		
+647	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+648	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	existed_after	66	156	151	682		
+649	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	existed_before	89	121	231	614		
+650	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	existed_during	12	74	72	897		
+651	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	exists_as_physical	49	59	695	252		
+652	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	instigation	70	48	640	297		
+653	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	location_of_event	69	7	957	22		
+654	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	makes_physical_contact	71	22	917	45		
+655	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	manipulated_by_another	72	106	339	538		
+656	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	predicate_changed_argument	121	148	511	275		
+657	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	sentient	14	28	813	200		
+658	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	stationary	17	2	1028	8		
+659	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	volition	40	49	659	307		
+660	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_macro_avg_	1017	1023	12131	4819		
+661	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_micro_avg_	1017	1023	12131	4819		
+662	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_0_	384	357	4387	2036	span_distance	0.0
+663	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_1_	228	195	2248	821	span_distance	1.0
+664	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_2_	67	92	1046	289	span_distance	2.0
+665	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_3_	91	79	1020	340	span_distance	3.0
+666	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_4_	48	64	678	218	span_distance	4.0
+667	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_5_	30	40	479	171	span_distance	5.0
+668	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_6_	42	44	443	155	span_distance	6.0
+669	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_7_	17	26	246	89	span_distance	7.0
+670	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_8_	29	14	223	112	span_distance	8.0
+671	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_9_	13	16	214	81	span_distance	9.0
+672	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_10_	8	9	156	61	span_distance	10.0
+673	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_11_	9	12	97	44	span_distance	11.0
+674	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_12_	11	14	178	67	span_distance	12.0
+675	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	4	89	63	span_distance	13.0
+676	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_14_	5	10	105	42	span_distance	14.0
+677	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_15_	6	13	145	52	span_distance	15.0
+678	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_16_	2	2	38	12	span_distance	16.0
+679	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+680	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_18_	4	6	59	21	span_distance	18.0
+681	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+682	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_20_	1	10	36	25	span_distance	20.0
+683	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_21_	3	1	45	23	span_distance	21.0
+684	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_22_	0	0	14	4	span_distance	22.0
+685	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+686	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+687	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	2	25	6	span_distance	27.0
+688	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	2	6	10	span_distance	28.0
+689	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_29_	2	1	12	3	span_distance	29.0
+690	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+691	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+692	../../jiant_outputs/bert-base-uncased-mix_3-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+693	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	awareness	37	51	630	353		
+694	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	change_of_location	41	26	990	14		
+695	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	change_of_state	113	131	544	283		
+696	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	changes_possession	45	13	984	29		
+697	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	created	52	17	981	21		
+698	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	destroyed	40	0	1031	0		
+699	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	existed_after	73	184	158	656		
+700	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	existed_before	98	113	259	601		
+701	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	existed_during	19	120	72	860		
+702	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	exists_as_physical	68	68	641	294		
+703	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	instigation	76	54	641	300		
+704	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	location_of_event	64	22	967	18		
+705	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	makes_physical_contact	69	40	881	81		
+706	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	manipulated_by_another	67	114	351	539		
+707	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	predicate_changed_argument	128	140	531	272		
+708	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	sentient	30	26	801	214		
+709	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	stationary	38	12	1006	15		
+710	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	volition	40	60	661	310		
+711	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_macro_avg_	1098	1191	12129	4860		
+712	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_micro_avg_	1098	1191	12129	4860		
+713	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_0_	386	397	4521	2184	span_distance	0.0
+714	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_1_	219	209	2069	689	span_distance	1.0
+715	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_2_	102	127	1179	374	span_distance	2.0
+716	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_3_	81	82	937	304	span_distance	3.0
+717	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_4_	69	70	717	260	span_distance	4.0
+718	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_5_	47	71	579	185	span_distance	5.0
+719	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_6_	33	29	361	99	span_distance	6.0
+720	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_7_	35	46	363	132	span_distance	7.0
+721	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_8_	23	35	263	93	span_distance	8.0
+722	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_9_	17	20	224	117	span_distance	9.0
+723	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_10_	12	31	222	95	span_distance	10.0
+724	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_11_	22	4	114	40	span_distance	11.0
+725	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_12_	5	9	96	52	span_distance	12.0
+726	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_13_	6	19	85	34	span_distance	13.0
+727	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+728	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_15_	6	4	36	26	span_distance	15.0
+729	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_16_	4	0	36	14	span_distance	16.0
+730	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	0	46	25	span_distance	17.0
+731	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	10	31	9	span_distance	18.0
+732	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	6	55	27	span_distance	19.0
+733	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+734	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	3	22	7	span_distance	21.0
+735	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_22_	5	3	20	8	span_distance	22.0
+736	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+737	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+738	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	1	10	5	span_distance	25.0
+739	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+740	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+741	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	awareness	28	37	640	350		
+742	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	change_of_location	37	10	987	21		
+743	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	change_of_state	119	140	519	277		
+744	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	changes_possession	47	5	970	33		
+745	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	created	56	14	970	15		
+746	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+747	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	existed_after	63	159	148	685		
+748	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	existed_before	83	112	240	620		
+749	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	existed_during	13	76	70	896		
+750	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	exists_as_physical	49	58	696	252		
+751	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	instigation	68	40	648	299		
+752	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	location_of_event	68	11	953	23		
+753	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	makes_physical_contact	64	19	920	52		
+754	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	manipulated_by_another	67	107	338	543		
+755	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	predicate_changed_argument	115	143	516	281		
+756	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	sentient	14	26	815	200		
+757	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	stationary	16	3	1027	9		
+758	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	volition	31	46	662	316		
+759	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_macro_avg_	963	1006	12148	4873		
+760	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_micro_avg_	963	1006	12148	4873		
+761	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_0_	359	350	4394	2061	span_distance	0.0
+762	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_1_	216	189	2254	833	span_distance	1.0
+763	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_2_	61	93	1045	295	span_distance	2.0
+764	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_3_	88	81	1018	343	span_distance	3.0
+765	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_4_	49	61	681	217	span_distance	4.0
+766	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_5_	28	42	477	173	span_distance	5.0
+767	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_6_	39	43	444	158	span_distance	6.0
+768	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_7_	14	28	244	92	span_distance	7.0
+769	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_8_	27	14	223	114	span_distance	8.0
+770	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_9_	13	14	216	81	span_distance	9.0
+771	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_10_	8	8	157	61	span_distance	10.0
+772	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_11_	9	9	100	44	span_distance	11.0
+773	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_12_	10	13	179	68	span_distance	12.0
+774	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	4	89	63	span_distance	13.0
+775	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_14_	5	9	106	42	span_distance	14.0
+776	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_15_	5	12	146	53	span_distance	15.0
+777	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_16_	2	2	38	12	span_distance	16.0
+778	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+779	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_18_	4	6	59	21	span_distance	18.0
+780	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+781	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_20_	4	10	36	22	span_distance	20.0
+782	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+783	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_22_	0	0	14	4	span_distance	22.0
+784	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+785	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+786	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+787	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	2	6	10	span_distance	28.0
+788	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_29_	1	1	12	4	span_distance	29.0
+789	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+790	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+791	../../jiant_outputs/bert-base-uncased-mix_4-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+792	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	awareness	38	48	633	352		
+793	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	change_of_location	40	27	989	15		
+794	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	change_of_state	113	131	544	283		
+795	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	changes_possession	43	13	984	31		
+796	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	created	49	19	979	24		
+797	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	destroyed	40	0	1031	0		
+798	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	existed_after	70	184	158	659		
+799	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	existed_before	90	112	260	609		
+800	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	existed_during	20	119	73	859		
+801	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	exists_as_physical	63	67	642	299		
+802	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	instigation	68	51	644	308		
+803	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	location_of_event	63	22	967	19		
+804	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	makes_physical_contact	64	45	876	86		
+805	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	manipulated_by_another	59	112	353	547		
+806	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	predicate_changed_argument	124	139	532	276		
+807	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	sentient	31	22	805	213		
+808	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	stationary	39	10	1008	14		
+809	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	volition	38	53	668	312		
+810	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_macro_avg_	1052	1174	12146	4906		
+811	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_micro_avg_	1052	1174	12146	4906		
+812	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_0_	373	394	4524	2197	span_distance	0.0
+813	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_1_	212	208	2070	696	span_distance	1.0
+814	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_2_	94	124	1182	382	span_distance	2.0
+815	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_3_	74	79	940	311	span_distance	3.0
+816	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_4_	70	69	718	259	span_distance	4.0
+817	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_5_	47	69	581	185	span_distance	5.0
+818	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_6_	27	30	360	105	span_distance	6.0
+819	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_7_	36	45	364	131	span_distance	7.0
+820	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_8_	23	33	265	93	span_distance	8.0
+821	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_9_	19	20	224	115	span_distance	9.0
+822	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_10_	11	31	222	96	span_distance	10.0
+823	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_11_	18	4	114	44	span_distance	11.0
+824	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_12_	5	10	95	52	span_distance	12.0
+825	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_13_	5	17	87	35	span_distance	13.0
+826	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+827	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_15_	5	4	36	27	span_distance	15.0
+828	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_16_	3	0	36	15	span_distance	16.0
+829	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	0	46	25	span_distance	17.0
+830	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	8	33	9	span_distance	18.0
+831	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	6	55	27	span_distance	19.0
+832	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+833	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	3	22	7	span_distance	21.0
+834	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	3	20	9	span_distance	22.0
+835	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+836	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+837	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	2	9	5	span_distance	25.0
+838	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+839	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+840	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	awareness	24	37	640	354		
+841	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	change_of_location	37	12	985	21		
+842	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	change_of_state	112	137	522	284		
+843	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	changes_possession	44	6	969	36		
+844	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	created	52	12	972	19		
+845	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+846	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	existed_after	64	155	152	684		
+847	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	existed_before	82	107	245	621		
+848	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	existed_during	14	72	74	895		
+849	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	exists_as_physical	42	51	703	259		
+850	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	instigation	62	39	649	305		
+851	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	location_of_event	67	11	953	24		
+852	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	makes_physical_contact	59	21	918	57		
+853	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	manipulated_by_another	62	103	342	548		
+854	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	predicate_changed_argument	119	134	525	277		
+855	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	sentient	11	23	818	203		
+856	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	stationary	15	3	1027	10		
+857	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	volition	26	41	667	321		
+858	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_macro_avg_	917	964	12190	4919		
+859	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_micro_avg_	917	964	12190	4919		
+860	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_0_	335	337	4407	2085	span_distance	0.0
+861	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_1_	214	179	2264	835	span_distance	1.0
+862	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_2_	62	91	1047	294	span_distance	2.0
+863	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_3_	81	77	1022	350	span_distance	3.0
+864	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_4_	45	59	683	221	span_distance	4.0
+865	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_5_	26	40	479	175	span_distance	5.0
+866	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_6_	35	43	444	162	span_distance	6.0
+867	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_7_	14	27	245	92	span_distance	7.0
+868	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_8_	24	13	224	117	span_distance	8.0
+869	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_9_	13	10	220	81	span_distance	9.0
+870	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_10_	7	5	160	62	span_distance	10.0
+871	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_11_	9	9	100	44	span_distance	11.0
+872	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_12_	11	14	178	67	span_distance	12.0
+873	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_13_	5	5	88	64	span_distance	13.0
+874	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_14_	5	8	107	42	span_distance	14.0
+875	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_15_	4	11	147	54	span_distance	15.0
+876	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_16_	2	2	38	12	span_distance	16.0
+877	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+878	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	7	58	20	span_distance	18.0
+879	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+880	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	9	37	23	span_distance	20.0
+881	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+882	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_22_	0	0	14	4	span_distance	22.0
+883	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+884	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+885	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+886	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	2	6	10	span_distance	28.0
+887	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_29_	2	1	12	3	span_distance	29.0
+888	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+889	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+890	../../jiant_outputs/bert-base-uncased-mix_5-edges-spr1/run	edges-spr1	test	_span_distance_33_	2	7	19	8	span_distance	33.0
+891	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	awareness	37	46	635	353		
+892	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	change_of_location	40	27	989	15		
+893	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	change_of_state	109	128	547	287		
+894	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	changes_possession	42	13	984	32		
+895	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	created	48	19	979	25		
+896	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	destroyed	39	0	1031	1		
+897	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	existed_after	67	180	162	662		
+898	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	existed_before	92	112	260	607		
+899	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	existed_during	20	118	74	859		
+900	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	exists_as_physical	59	65	644	303		
+901	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	instigation	64	49	646	312		
+902	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	location_of_event	56	23	966	26		
+903	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	makes_physical_contact	59	51	870	91		
+904	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	manipulated_by_another	57	110	355	549		
+905	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	predicate_changed_argument	126	138	533	274		
+906	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	sentient	23	20	807	221		
+907	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	stationary	38	9	1009	15		
+908	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	volition	39	53	668	311		
+909	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_macro_avg_	1015	1161	12159	4943		
+910	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_micro_avg_	1015	1161	12159	4943		
+911	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_0_	355	391	4527	2215	span_distance	0.0
+912	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_1_	210	206	2072	698	span_distance	1.0
+913	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_2_	90	122	1184	386	span_distance	2.0
+914	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_3_	70	80	939	315	span_distance	3.0
+915	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_4_	72	67	720	257	span_distance	4.0
+916	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_5_	41	68	582	191	span_distance	5.0
+917	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_6_	29	30	360	103	span_distance	6.0
+918	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_7_	36	45	364	131	span_distance	7.0
+919	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_8_	21	29	269	95	span_distance	8.0
+920	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_9_	19	20	224	115	span_distance	9.0
+921	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_10_	9	32	221	98	span_distance	10.0
+922	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_11_	16	4	114	46	span_distance	11.0
+923	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_12_	4	10	95	53	span_distance	12.0
+924	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_13_	5	14	90	35	span_distance	13.0
+925	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+926	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_15_	5	4	36	27	span_distance	15.0
+927	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_16_	2	0	36	16	span_distance	16.0
+928	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+929	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_18_	5	8	33	8	span_distance	18.0
+930	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	6	55	27	span_distance	19.0
+931	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+932	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	3	22	7	span_distance	21.0
+933	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	3	20	9	span_distance	22.0
+934	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	4	14	0	span_distance	23.0
+935	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_24_	5	2	45	20	span_distance	24.0
+936	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	2	9	5	span_distance	25.0
+937	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+938	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+939	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	awareness	21	34	643	357		
+940	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	change_of_location	35	11	986	23		
+941	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	change_of_state	108	137	522	288		
+942	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	changes_possession	46	6	969	34		
+943	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	created	51	14	970	20		
+944	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+945	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	existed_after	57	151	156	691		
+946	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	existed_before	75	104	248	628		
+947	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	existed_during	13	74	72	896		
+948	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	exists_as_physical	37	52	702	264		
+949	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	instigation	54	34	654	313		
+950	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	location_of_event	65	10	954	26		
+951	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	makes_physical_contact	57	20	919	59		
+952	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	manipulated_by_another	63	101	344	547		
+953	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	predicate_changed_argument	116	129	530	280		
+954	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	sentient	8	23	818	206		
+955	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	stationary	14	4	1026	11		
+956	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	volition	29	38	670	318		
+957	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_macro_avg_	874	942	12212	4962		
+958	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_micro_avg_	874	942	12212	4962		
+959	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_0_	317	334	4410	2103	span_distance	0.0
+960	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_1_	204	177	2266	845	span_distance	1.0
+961	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_2_	60	93	1045	296	span_distance	2.0
+962	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_3_	80	74	1025	351	span_distance	3.0
+963	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_4_	42	58	684	224	span_distance	4.0
+964	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_5_	24	39	480	177	span_distance	5.0
+965	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_6_	35	43	444	162	span_distance	6.0
+966	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_7_	11	24	248	95	span_distance	7.0
+967	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_8_	22	11	226	119	span_distance	8.0
+968	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_9_	12	9	221	82	span_distance	9.0
+969	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_10_	5	4	161	64	span_distance	10.0
+970	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_11_	10	10	99	43	span_distance	11.0
+971	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_12_	11	12	180	67	span_distance	12.0
+972	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	3	90	63	span_distance	13.0
+973	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_14_	5	7	108	42	span_distance	14.0
+974	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_15_	4	9	149	54	span_distance	15.0
+975	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_16_	2	2	38	12	span_distance	16.0
+976	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_17_	1	3	37	13	span_distance	17.0
+977	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	6	59	20	span_distance	18.0
+978	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+979	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_20_	2	9	37	24	span_distance	20.0
+980	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+981	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+982	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+983	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+984	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+985	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	2	6	10	span_distance	28.0
+986	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_29_	2	1	12	3	span_distance	29.0
+987	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+988	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+989	../../jiant_outputs/bert-base-uncased-mix_6-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	7	19	9	span_distance	33.0
+990	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	awareness	34	40	641	356		
+991	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	change_of_location	40	30	986	15		
+992	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	change_of_state	107	129	546	289		
+993	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	changes_possession	42	12	985	32		
+994	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	created	48	17	981	25		
+995	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	destroyed	39	2	1029	1		
+996	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	existed_after	66	180	162	663		
+997	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	existed_before	93	103	269	606		
+998	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	existed_during	18	116	76	861		
+999	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	exists_as_physical	55	63	646	307		
+1000	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	instigation	61	48	647	315		
+1001	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	location_of_event	55	23	966	27		
+1002	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	makes_physical_contact	57	55	866	93		
+1003	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	manipulated_by_another	59	111	354	547		
+1004	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	predicate_changed_argument	122	136	535	278		
+1005	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	sentient	21	19	808	223		
+1006	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	stationary	35	9	1009	18		
+1007	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	volition	37	51	670	313		
+1008	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_macro_avg_	989	1144	12176	4969		
+1009	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_micro_avg_	989	1144	12176	4969		
+1010	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_0_	345	387	4531	2225	span_distance	0.0
+1011	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_1_	205	203	2075	703	span_distance	1.0
+1012	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_2_	90	119	1187	386	span_distance	2.0
+1013	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_3_	67	78	941	318	span_distance	3.0
+1014	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_4_	67	70	717	262	span_distance	4.0
+1015	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_5_	39	67	583	193	span_distance	5.0
+1016	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_6_	27	28	362	105	span_distance	6.0
+1017	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_7_	36	45	364	131	span_distance	7.0
+1018	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_8_	21	29	269	95	span_distance	8.0
+1019	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_9_	19	19	225	115	span_distance	9.0
+1020	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_10_	9	31	222	98	span_distance	10.0
+1021	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_11_	16	4	114	46	span_distance	11.0
+1022	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_12_	5	10	95	52	span_distance	12.0
+1023	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_13_	6	14	90	34	span_distance	13.0
+1024	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	4	34	32	span_distance	14.0
+1025	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_15_	5	4	36	27	span_distance	15.0
+1026	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_16_	2	0	36	16	span_distance	16.0
+1027	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+1028	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_18_	5	6	35	8	span_distance	18.0
+1029	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	6	55	27	span_distance	19.0
+1030	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+1031	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_21_	4	2	23	7	span_distance	21.0
+1032	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	3	20	9	span_distance	22.0
+1033	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+1034	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_24_	4	3	44	21	span_distance	24.0
+1035	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	2	9	5	span_distance	25.0
+1036	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+1037	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+1038	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	awareness	20	32	645	358		
+1039	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	change_of_location	33	12	985	25		
+1040	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	change_of_state	106	127	532	290		
+1041	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	changes_possession	44	6	969	36		
+1042	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	created	47	15	969	24		
+1043	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	destroyed	25	0	1029	1		
+1044	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	existed_after	56	146	161	692		
+1045	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	existed_before	76	99	253	627		
+1046	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	existed_during	12	74	72	897		
+1047	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	exists_as_physical	35	50	704	266		
+1048	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	instigation	51	31	657	316		
+1049	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	location_of_event	65	10	954	26		
+1050	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	makes_physical_contact	56	23	916	60		
+1051	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	manipulated_by_another	59	101	344	551		
+1052	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	predicate_changed_argument	112	117	542	284		
+1053	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	sentient	5	21	820	209		
+1054	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	stationary	14	5	1025	11		
+1055	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	volition	29	37	671	318		
+1056	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_macro_avg_	845	906	12248	4991		
+1057	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_micro_avg_	845	906	12248	4991		
+1058	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_0_	310	317	4427	2110	span_distance	0.0
+1059	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_1_	191	174	2269	858	span_distance	1.0
+1060	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_2_	61	94	1044	295	span_distance	2.0
+1061	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_3_	75	73	1026	356	span_distance	3.0
+1062	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_4_	42	51	691	224	span_distance	4.0
+1063	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_5_	23	39	480	178	span_distance	5.0
+1064	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_6_	33	40	447	164	span_distance	6.0
+1065	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_7_	10	22	250	96	span_distance	7.0
+1066	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_8_	21	11	226	120	span_distance	8.0
+1067	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_9_	12	8	222	82	span_distance	9.0
+1068	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_10_	5	4	161	64	span_distance	10.0
+1069	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_11_	10	10	99	43	span_distance	11.0
+1070	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_12_	11	12	180	67	span_distance	12.0
+1071	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	2	91	63	span_distance	13.0
+1072	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_14_	4	8	107	43	span_distance	14.0
+1073	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_15_	4	9	149	54	span_distance	15.0
+1074	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	1	39	13	span_distance	16.0
+1075	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_17_	2	3	37	12	span_distance	17.0
+1076	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	4	61	20	span_distance	18.0
+1077	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+1078	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_20_	2	9	37	24	span_distance	20.0
+1079	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+1080	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+1081	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+1082	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+1083	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+1084	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	2	6	10	span_distance	28.0
+1085	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_29_	3	1	12	2	span_distance	29.0
+1086	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+1087	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+1088	../../jiant_outputs/bert-base-uncased-mix_7-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	7	19	9	span_distance	33.0
+1089	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	awareness	33	39	642	357		
+1090	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	change_of_location	37	33	983	18		
+1091	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	change_of_state	129	102	573	267		
+1092	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	changes_possession	42	13	984	32		
+1093	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	created	45	23	975	28		
+1094	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	destroyed	38	3	1028	2		
+1095	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	existed_after	87	138	204	642		
+1096	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	existed_before	93	80	292	606		
+1097	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	existed_during	30	108	84	849		
+1098	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	exists_as_physical	59	44	665	303		
+1099	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	instigation	51	53	642	325		
+1100	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	location_of_event	58	24	965	24		
+1101	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	makes_physical_contact	58	49	872	92		
+1102	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	manipulated_by_another	63	104	361	543		
+1103	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	predicate_changed_argument	137	103	568	263		
+1104	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	sentient	19	15	812	225		
+1105	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	stationary	33	10	1008	20		
+1106	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	volition	37	47	674	313		
+1107	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_macro_avg_	1049	988	12332	4909		
+1108	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_micro_avg_	1049	988	12332	4909		
+1109	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_0_	368	333	4585	2202	span_distance	0.0
+1110	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_1_	216	173	2105	692	span_distance	1.0
+1111	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_2_	96	108	1198	380	span_distance	2.0
+1112	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_3_	68	62	957	317	span_distance	3.0
+1113	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_4_	71	62	725	258	span_distance	4.0
+1114	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_5_	41	57	593	191	span_distance	5.0
+1115	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_6_	29	26	364	103	span_distance	6.0
+1116	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_7_	33	40	369	134	span_distance	7.0
+1117	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_8_	22	25	273	94	span_distance	8.0
+1118	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_9_	23	15	229	111	span_distance	9.0
+1119	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_10_	7	27	226	100	span_distance	10.0
+1120	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_11_	24	4	114	38	span_distance	11.0
+1121	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_12_	6	9	96	51	span_distance	12.0
+1122	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_13_	7	12	92	33	span_distance	13.0
+1123	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	1	37	32	span_distance	14.0
+1124	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	4	36	25	span_distance	15.0
+1125	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_16_	1	0	36	17	span_distance	16.0
+1126	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+1127	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	6	35	9	span_distance	18.0
+1128	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	7	54	27	span_distance	19.0
+1129	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+1130	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_21_	6	1	24	5	span_distance	21.0
+1131	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	1	22	9	span_distance	22.0
+1132	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+1133	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_24_	3	2	45	22	span_distance	24.0
+1134	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_25_	2	3	8	5	span_distance	25.0
+1135	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+1136	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+1137	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	awareness	26	31	646	352		
+1138	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	change_of_location	30	14	983	28		
+1139	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	change_of_state	129	98	561	267		
+1140	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	changes_possession	41	7	968	39		
+1141	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	created	46	11	973	25		
+1142	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	destroyed	24	2	1027	2		
+1143	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	existed_after	76	111	196	672		
+1144	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	existed_before	83	82	270	620		
+1145	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	existed_during	23	58	88	886		
+1146	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	exists_as_physical	40	37	717	261		
+1147	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	instigation	50	33	655	317		
+1148	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	location_of_event	64	14	950	27		
+1149	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	makes_physical_contact	58	20	919	58		
+1150	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	manipulated_by_another	66	91	354	544		
+1151	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	predicate_changed_argument	132	85	574	264		
+1152	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	sentient	4	20	821	210		
+1153	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	stationary	17	4	1026	8		
+1154	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	volition	31	36	672	316		
+1155	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_macro_avg_	940	754	12400	4896		
+1156	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_micro_avg_	940	754	12400	4896		
+1157	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_0_	338	267	4477	2082	span_distance	0.0
+1158	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_1_	212	147	2296	837	span_distance	1.0
+1159	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_2_	68	72	1066	288	span_distance	2.0
+1160	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_3_	77	63	1036	354	span_distance	3.0
+1161	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_4_	51	47	695	215	span_distance	4.0
+1162	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_5_	25	37	482	176	span_distance	5.0
+1163	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_6_	39	36	451	158	span_distance	6.0
+1164	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_7_	12	13	259	94	span_distance	7.0
+1165	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_8_	26	5	232	115	span_distance	8.0
+1166	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_9_	15	4	226	79	span_distance	9.0
+1167	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_10_	7	4	161	62	span_distance	10.0
+1168	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_11_	9	9	100	44	span_distance	11.0
+1169	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_12_	12	9	183	66	span_distance	12.0
+1170	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	2	91	63	span_distance	13.0
+1171	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_14_	5	6	109	42	span_distance	14.0
+1172	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_15_	6	7	151	52	span_distance	15.0
+1173	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	1	39	13	span_distance	16.0
+1174	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_17_	4	2	38	10	span_distance	17.0
+1175	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	3	62	20	span_distance	18.0
+1176	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+1177	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_20_	4	7	39	22	span_distance	20.0
+1178	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+1179	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+1180	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+1181	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+1182	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+1183	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	0	8	10	span_distance	28.0
+1184	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_29_	4	1	12	1	span_distance	29.0
+1185	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+1186	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+1187	../../jiant_outputs/bert-base-uncased-mix_8-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	7	19	9	span_distance	33.0
+1188	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	awareness	32	39	642	358		
+1189	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	change_of_location	36	30	986	19		
+1190	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	change_of_state	128	99	576	268		
+1191	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	changes_possession	41	13	984	33		
+1192	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	created	45	21	977	28		
+1193	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	destroyed	37	3	1028	3		
+1194	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	existed_after	89	134	208	640		
+1195	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	existed_before	89	80	292	610		
+1196	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	existed_during	26	109	83	853		
+1197	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	exists_as_physical	57	43	666	305		
+1198	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	instigation	51	49	646	325		
+1199	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	location_of_event	55	24	965	27		
+1200	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	makes_physical_contact	58	46	875	92		
+1201	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	manipulated_by_another	63	101	364	543		
+1202	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	predicate_changed_argument	128	93	578	272		
+1203	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	sentient	17	14	813	227		
+1204	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	stationary	33	11	1007	20		
+1205	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	volition	35	42	679	315		
+1206	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_macro_avg_	1020	951	12369	4938		
+1207	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_micro_avg_	1020	951	12369	4938		
+1208	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_0_	365	322	4596	2205	span_distance	0.0
+1209	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_1_	205	167	2111	703	span_distance	1.0
+1210	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_2_	94	103	1203	382	span_distance	2.0
+1211	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_3_	66	65	954	319	span_distance	3.0
+1212	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_4_	72	60	727	257	span_distance	4.0
+1213	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_5_	40	51	599	192	span_distance	5.0
+1214	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_6_	26	25	365	106	span_distance	6.0
+1215	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_7_	32	41	368	135	span_distance	7.0
+1216	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_8_	20	21	277	96	span_distance	8.0
+1217	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_9_	22	15	229	112	span_distance	9.0
+1218	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_10_	6	26	227	101	span_distance	10.0
+1219	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_11_	23	4	114	39	span_distance	11.0
+1220	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_12_	6	7	98	51	span_distance	12.0
+1221	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_13_	7	11	93	33	span_distance	13.0
+1222	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_14_	2	1	37	32	span_distance	14.0
+1223	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_15_	7	4	36	25	span_distance	15.0
+1224	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_16_	1	0	36	17	span_distance	16.0
+1225	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_17_	1	1	45	25	span_distance	17.0
+1226	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_18_	4	6	35	9	span_distance	18.0
+1227	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_19_	2	5	56	27	span_distance	19.0
+1228	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_20_	2	2	22	10	span_distance	20.0
+1229	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_21_	5	1	24	6	span_distance	21.0
+1230	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_22_	4	1	22	9	span_distance	22.0
+1231	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_23_	0	3	15	0	span_distance	23.0
+1232	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_24_	3	2	45	22	span_distance	24.0
+1233	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_25_	1	3	8	6	span_distance	25.0
+1234	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_27_	4	4	15	13	span_distance	27.0
+1235	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	val	_span_distance_28_	0	0	12	6	span_distance	28.0
+1236	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	awareness	24	30	647	354		
+1237	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	change_of_location	28	13	984	30		
+1238	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	change_of_state	132	93	566	264		
+1239	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	changes_possession	41	7	968	39		
+1240	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	created	44	11	973	27		
+1241	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	destroyed	24	2	1027	2		
+1242	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	existed_after	75	108	199	673		
+1243	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	existed_before	82	82	270	621		
+1244	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	existed_during	22	55	91	887		
+1245	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	exists_as_physical	38	36	718	263		
+1246	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	instigation	49	33	655	318		
+1247	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	location_of_event	62	13	951	29		
+1248	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	makes_physical_contact	56	18	921	60		
+1249	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	manipulated_by_another	64	89	356	546		
+1250	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	predicate_changed_argument	135	82	577	261		
+1251	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	sentient	7	21	820	207		
+1252	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	stationary	17	4	1026	8		
+1253	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	volition	31	34	674	316		
+1254	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_macro_avg_	931	731	12423	4905		
+1255	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_micro_avg_	931	731	12423	4905		
+1256	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_0_	328	260	4484	2092	span_distance	0.0
+1257	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_1_	209	142	2301	840	span_distance	1.0
+1258	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_2_	70	70	1068	286	span_distance	2.0
+1259	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_3_	76	62	1037	355	span_distance	3.0
+1260	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_4_	50	45	697	216	span_distance	4.0
+1261	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_5_	26	33	486	175	span_distance	5.0
+1262	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_6_	38	36	451	159	span_distance	6.0
+1263	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_7_	11	14	258	95	span_distance	7.0
+1264	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_8_	28	5	232	113	span_distance	8.0
+1265	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_9_	15	4	226	79	span_distance	9.0
+1266	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_10_	7	4	161	62	span_distance	10.0
+1267	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_11_	10	7	102	43	span_distance	11.0
+1268	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_12_	13	9	183	65	span_distance	12.0
+1269	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_13_	6	2	91	63	span_distance	13.0
+1270	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_14_	7	7	108	40	span_distance	14.0
+1271	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_15_	5	6	152	53	span_distance	15.0
+1272	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_16_	1	2	38	13	span_distance	16.0
+1273	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_17_	4	2	38	10	span_distance	17.0
+1274	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_18_	5	3	62	20	span_distance	18.0
+1275	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_19_	1	0	26	27	span_distance	19.0
+1276	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_20_	3	6	40	23	span_distance	20.0
+1277	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_21_	4	2	44	22	span_distance	21.0
+1278	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_22_	1	0	14	3	span_distance	22.0
+1279	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_24_	2	0	8	8	span_distance	24.0
+1280	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_26_	0	0	8	10	span_distance	26.0
+1281	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_27_	3	3	24	6	span_distance	27.0
+1282	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_28_	0	0	8	10	span_distance	28.0
+1283	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_29_	5	0	13	0	span_distance	29.0
+1284	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_30_	2	0	28	6	span_distance	30.0
+1285	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_31_	0	0	16	2	span_distance	31.0
+1286	../../jiant_outputs/bert-base-uncased-mix_9-edges-spr1/run	edges-spr1	test	_span_distance_33_	1	7	19	9	span_distance	33.0
