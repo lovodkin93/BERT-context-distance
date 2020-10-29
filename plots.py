@@ -6,29 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from jiant import *
-
-
-SPAN1_LEN = 'span1_len'
-SPAN1_SPAN2_LEN = 'span1_span2_len'
-SPAN1_SPAN2_DIST = 'span1_span2_dist'
-AT_LEAST = "at_least"
-AT_MOST = "at_most"
-
-SPLIT = 'val'
-MAX_COREF_OLD_THRESHOLD_DISTANCE = 66
-MAX_COREF_NEW_THRESHOLD_DISTANCE = 66
-MAX_SPR_THRESHOLD_DISTANCE = 24 #changes from the original Edgeprobe_Aggregate_Analysis.py
-MAX_SRL_THRESHOLD_DISTANCE = 22
-MAX_NER_THRESHOLD_DISTANCE = 9
-MAX_NONTERMINAL_THRESHOLD_DISTANCE = 55
-MAX_DEP_THRESHOLD_DISTANCE = 30
-MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE)
-BERT_LAYERS=12
-MIN_EXAMPLES_CNT = 700
-MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
-MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.005
-CASUAL_EFFECT_SPAN_SIZE = 3
-NER_CASUAL_EFFECT_SPAN_SIZE = CASUAL_EFFECT_SPAN_SIZE
+from utils import *
 
 def plot(y1,y2, label1, label2 ,max_threshold_1,max_threshold_2,xlabel,ylabel,title,withLegend,withY2,subplt_orient=111):
     # import seaborn as sns
@@ -63,7 +41,7 @@ def plot(y1,y2, label1, label2 ,max_threshold_1,max_threshold_2,xlabel,ylabel,ti
         plt.show()
 
 
-def plots_2_tasks(coref, coref_inSent, spr, srl, ner, nonterminals, ylabel=""):
+def plots_2_tasks(coref, spr, srl, ner, nonterminals, ylabel=""):
     title = ylabel + ' as a func. of maximal distance '
    # non-terminals vs. co-reference
     plot(coref, nonterminals, 'co-reference', 'non-terminals',
@@ -82,25 +60,25 @@ def plots_2_tasks(coref, coref_inSent, spr, srl, ner, nonterminals, ylabel=""):
          MAX_COREF_OLD_THRESHOLD_DISTANCE, MAX_SPR_THRESHOLD_DISTANCE,
          'Threshold distance', ylabel, title, True, True,224)
     # non-terminals vs. in-sentence co-reference
-    plot(coref_inSent, nonterminals, 'co-reference', 'non-terminals',
-         MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE,
-         'Threshold distance', ylabel, title, True, True,221)
-    # NER vs. in-sentence co-reference
-    plot(coref_inSent, ner, 'co-reference', 'NER',
-         MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE,
-         'Threshold distance', ylabel, title, True, True,222)
-    # srl vs. in-sentence co-reference
-    plot(coref_inSent, srl, 'co-reference', 'SRL',
-        MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE,
-        'Threshold distance', ylabel, title, True, True,223)
-    # SPR vs. in-sentence co-reference
-    plot(coref_inSent, spr, 'co-reference', 'SPR',
-         MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_SPR_THRESHOLD_DISTANCE,
-         'Threshold distance', ylabel, title, True, True,224)
-   # co-reference vs. in-sentence co-reference
-    plot(coref, coref_inSent, 'co-reference', 'in-sentence co-reference',
-         MAX_COREF_OLD_THRESHOLD_DISTANCE, MAX_COREF_NEW_THRESHOLD_DISTANCE,
-         'Threshold distance', ylabel, title, True, True,111)
+   #  plot(coref_inSent, nonterminals, 'co-reference', 'non-terminals',
+   #       MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE,
+   #       'Threshold distance', ylabel, title, True, True,221)
+   #  # NER vs. in-sentence co-reference
+   #  plot(coref_inSent, ner, 'co-reference', 'NER',
+   #       MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE,
+   #       'Threshold distance', ylabel, title, True, True,222)
+   #  # srl vs. in-sentence co-reference
+   #  plot(coref_inSent, srl, 'co-reference', 'SRL',
+   #      MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE,
+   #      'Threshold distance', ylabel, title, True, True,223)
+   #  # SPR vs. in-sentence co-reference
+   #  plot(coref_inSent, spr, 'co-reference', 'SPR',
+   #       MAX_COREF_NEW_THRESHOLD_DISTANCE, MAX_SPR_THRESHOLD_DISTANCE,
+   #       'Threshold distance', ylabel, title, True, True,224)
+   # # co-reference vs. in-sentence co-reference
+   #  plot(coref, coref_inSent, 'co-reference', 'in-sentence co-reference',
+   #       MAX_COREF_OLD_THRESHOLD_DISTANCE, MAX_COREF_NEW_THRESHOLD_DISTANCE,
+   #       'Threshold distance', ylabel, title, True, True,111)
 
 
 def plots_1_task(coref, coref_inSent, spr, srl, ner, nonterminals, ylabel=""):

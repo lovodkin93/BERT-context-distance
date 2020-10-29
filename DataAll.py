@@ -4,7 +4,7 @@ import itertools
 import collections
 import numpy as np
 import pandas as pd
-
+from utils import *
 import jiant.probing.analysis as analysis
 reload(analysis)
 
@@ -15,33 +15,9 @@ palette = analysis.EXP_PALETTE
 task_sort_key = analysis.task_sort_key
 exp_type_sort_key = analysis.exp_type_sort_key
 
-SPAN1_LEN = 'span1_len'
-SPAN1_SPAN2_LEN = 'span1_span2_len'
-SPAN1_SPAN2_DIST = 'span1_span2_dist'
-AT_LEAST = "at_least"
-AT_MOST = "at_most"
-
-SPLIT = 'val'
-MAX_COREF_OLD_THRESHOLD_DISTANCE = 66
-MAX_COREF_NEW_THRESHOLD_DISTANCE = 66
-MAX_SPR_THRESHOLD_DISTANCE = 24 #changes from the original Edgeprobe_Aggregate_Analysis.py
-MAX_SRL_THRESHOLD_DISTANCE = 22
-MAX_NER_THRESHOLD_DISTANCE = 9
-MAX_NONTERMINAL_THRESHOLD_DISTANCE = 55
-MAX_DEP_THRESHOLD_DISTANCE = 30
-MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE)
-BERT_LAYERS=12
-MIN_EXAMPLES_CNT = 700
-MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
-MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.005
-CASUAL_EFFECT_SPAN_SIZE = 3
-NER_CASUAL_EFFECT_SPAN_SIZE = CASUAL_EFFECT_SPAN_SIZE
 
 from scipy.special import logsumexp
 from scipy.stats import entropy
-
-def softmax(x, axis=None):
-    return np.exp(x - logsumexp(x, axis=axis, keepdims=True))
 
 import bokeh
 import bokeh.plotting as bp
@@ -49,8 +25,6 @@ bp.output_notebook()
 
 import datetime
 import socket
-
-ID_COLS = ['run', 'task', 'split']
 
 class Data:
 
@@ -159,3 +133,14 @@ class Data:
 
         df['score'], df['score_errn95'] = zip(*(_get_final_score(row) for i, row in df.iterrows()))
         return df
+
+class DataAll:
+
+    def __init__(self):
+        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'co-reference')
+        self.spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR')
+        self.srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL')
+        self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER')
+        self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'non-terminals')
+        self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'dependencies')
+        self.relations = Data("./scores/scores_rel.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'relations')

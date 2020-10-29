@@ -8,47 +8,25 @@ from jiant import *
 from plots import *
 from DataAll import *
 from ResultAll import *
-
-SPAN1_LEN = 'span1_len'
-SPAN1_SPAN2_LEN = 'span1_span2_len'
-SPAN1_SPAN2_DIST = 'span1_span2_dist'
-AT_LEAST = "at_least"
-AT_MOST = "at_most"
-
-SPLIT = 'val'
-MAX_COREF_OLD_THRESHOLD_DISTANCE = 66
-MAX_COREF_NEW_THRESHOLD_DISTANCE = 66
-MAX_SPR_THRESHOLD_DISTANCE = 24 #changes from the original Edgeprobe_Aggregate_Analysis.py
-MAX_SRL_THRESHOLD_DISTANCE = 22
-MAX_NER_THRESHOLD_DISTANCE = 9
-MAX_NONTERMINAL_THRESHOLD_DISTANCE = 55
-MAX_DEP_THRESHOLD_DISTANCE = 30
-MAX_REL_THRESHOLD_DISTANCE = 9
-MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE, MAX_REL_THRESHOLD_DISTANCE)
-BERT_LAYERS=12
-MIN_EXAMPLES_CNT = 700
-MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
-MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.005
-CASUAL_EFFECT_SPAN_SIZE = 3
-NER_CASUAL_EFFECT_SPAN_SIZE = CASUAL_EFFECT_SPAN_SIZE
-
+from utils import *
 
 def main(args):
+    dataAll = DataAll()
     # dfs
-    df_coref = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'co-reference').data_df
-    df_coref_inSent = Data("./scores/scores_new_coref.tsv", MAX_COREF_NEW_THRESHOLD_DISTANCE, 'in-sentence co-reference').data_df
-    df_spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR').data_df
-    df_srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL').data_df
-    df_ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER').data_df
-    df_nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'non-terminals').data_df
-    df_dep = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'dependency').data_df
-    df_rel = Data("./scores/scores_rel.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'relations').data_df
+    df_coref = dataAll.coreference.data_df
+    #df_coref_inSent = Data("./scores/scores_new_coref.tsv", MAX_COREF_NEW_THRESHOLD_DISTANCE, 'in-sentence co-reference').data_df
+    df_spr = dataAll.spr.data_df
+    df_srl = dataAll.srl.data_df
+    df_ner = dataAll.ner.data_df
+    df_nonterminals = dataAll.nonterminals.data_df
+    df_dep = dataAll.dependencies.data_df
+    df_rel = dataAll.relations.data_df
 
     ############################## span1_span2_distance #############################
 
     #expected layers, first neative delta, best layers and number of examples:
     coref_exp_layer_dict, coref_first_negative_delta_dict, coref_var_layer_dict, coref_best_layer_dict, coref_num_examples  = get_exp_and_best_layer_dict(df_coref, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
-    coref_inSent_exp_layer_dict, coref_inSent_first_negative_delta_dict, coref_inSent_var_layer_dict, coref_inSent_best_layer_dict, coref_inSent_num_examples = get_exp_and_best_layer_dict(df_coref_inSent, MAX_COREF_NEW_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
+    #coref_inSent_exp_layer_dict, coref_inSent_first_negative_delta_dict, coref_inSent_var_layer_dict, coref_inSent_best_layer_dict, coref_inSent_num_examples = get_exp_and_best_layer_dict(df_coref_inSent, MAX_COREF_NEW_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
     spr_exp_layer_dict, spr_first_negative_delta_dict, spr_var_layer_dict, spr_best_layer_dict, spr_num_examples = get_exp_and_best_layer_dict(df_spr, MAX_SPR_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
     srl_exp_layer_dict, srl_first_negative_delta_dict, srl_var_layer_dict, srl_best_layer_dict, srl_num_examples = get_exp_and_best_layer_dict(df_srl, MAX_SRL_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
     ner_exp_layer_dict, ner_first_negative_delta_dict, ner_var_layer_dict, ner_best_layer_dict, ner_num_examples = get_exp_and_best_layer_dict(df_ner, MAX_NER_THRESHOLD_DISTANCE, span=SPAN1_LEN , at_most_least=AT_MOST)
@@ -144,7 +122,7 @@ def main(args):
     exp_layer['SPR'] = spr_exp_layer_dict
     plot_span_expected_layer(exp_layer, "threshold", "expected layer", xlim=MAX_SPR_THRESHOLD_DISTANCE, barGraphToo=False)
 ################################################## PLOTS #############################################################
-    plots_2_tasks(coref_exp_layer_dict, coref_inSent_exp_layer_dict, spr_exp_layer_dict, srl_exp_layer_dict, ner_exp_layer_dict,nonterm_exp_layer_dict, ylabel="Expected Layer")
+    plots_2_tasks(coref_exp_layer_dict, spr_exp_layer_dict, srl_exp_layer_dict, ner_exp_layer_dict,nonterm_exp_layer_dict, ylabel="Expected Layer")
     # plots_2_tasks(coref_var_layer_dict, coref_inSent_var_layer_dict, spr_var_layer_dict, srl_var_layer_dict, ner_var_layer_dict,nonterm_var_layer_dict, ylabel="Variance of Layer")
     # plots_2_tasks(coref_best_layer_dict, coref_inSent_best_layer_dict, spr_best_layer_dict, srl_best_layer_dict,ner_best_layer_dict,nonterm_best_layer_dict, ylabel="Best Layer")
     #
