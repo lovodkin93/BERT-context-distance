@@ -16,7 +16,6 @@ task_sort_key = analysis.task_sort_key
 exp_type_sort_key = analysis.exp_type_sort_key
 
 
-from scipy.special import logsumexp
 from scipy.stats import entropy
 
 import bokeh

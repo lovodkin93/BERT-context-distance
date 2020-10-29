@@ -5,86 +5,28 @@ import numpy as np
 import pandas as pd
 from heapq import nlargest
 from jiant import *
+from DataAll import *
 from utils import *
 
-def calc_expected_layer(df):
-    # returns the expected layer and the num of layers where there's a negative delta for the first time
-    if(len(df)==0):
-        return 0,0,0,0
-    f1_scores = df[['layer_num', 'f1_score']]
-    numerator_X = 0 # EX - of expected layer
-    numerator_X_2 = 0 # EX^2
-    denominator = 0
-    best_num_layer = 0
-    first_neg_delta = -1
-    best_score = f1_scores.loc[f1_scores['layer_num'] == '0']['f1_score'].values[0]
-    isZero = True  # make sure it's not a constant zero
+class Result:
+    def __init__(self, data_class, max_thr, at_most_least):
+        # dict - for threshold, no dict - the general case - when looking at all instances
+        self.data_class = data_class
+        self.expected_layer, self.first_neg_delta, self.var_layer, self.best_num_layer = calc_expected_layer(data_class.data_df)
+        self.expected_layer_dict, self.first_neg_delta_dict, self.var_layer_dict, self.best_layer_dict, self.num_examples_dict = self.get_exp_and_best_layer_dict(data_class.data_df, max_thr, at_most_least=at_most_least)
 
-    for i in range(1, BERT_LAYERS + 1):
-        prev_score = f1_scores.loc[f1_scores['layer_num'] == str(i - 1)]['f1_score'].values[0]
-        curr_score = f1_scores.loc[f1_scores['layer_num'] == str(i)]['f1_score'].values[0]
-        # best score
-        if (curr_score > best_score):
-            best_score = curr_score
-            best_num_layer = i
-        # expected layer, variance of layer and the first negative delta
-        delta = curr_score - prev_score
-        if (delta != 0):
-            isZero = False
-        if (first_neg_delta == -1 and delta < 0):
-            first_neg_delta = i
-        numerator_X = numerator_X + (i * delta)
-        numerator_X_2 = numerator_X_2 + ((i**2) * delta)
-        denominator = denominator + delta
-    if isZero:
-        exp_layer = 0
-        var_layer = 0
-    elif denominator == 0:
-        exp_layer = BERT_LAYERS
-        var_layer = 0
-    else:
-        exp_layer = numerator_X / denominator
-        var_layer = (numerator_X_2 / denominator) - (exp_layer**2) # varX = EX^2 - (EX)^2
-    return exp_layer, first_neg_delta, var_layer, best_num_layer
-
-def TCE_helper(df, max_threshold_distance, allSpans=False, span=SPAN1_SPAN2_DIST):
-    # span = types of span: SPAN1_LEN, SPAN1_SPAN2_LEN, SPAN1_SPAN2_DIST
-    # returns the expected layer for each spans of coref_span and their probability
-    exp_layer_dict = dict()
-    num_examples_dict = dict()
-    total_example_num = df.loc[(df['label'] == '_macro_avg_') & (df['split'] == SPLIT)]['total_count'].values[0]
-    for MIN_DIST in range(0, max_threshold_distance+1- CASUAL_EFFECT_SPAN_SIZE, CASUAL_EFFECT_SPAN_SIZE):
-        l_bound = MIN_DIST  # lower bound
-        h_bound = MIN_DIST + CASUAL_EFFECT_SPAN_SIZE - 1  # higher bound is minus 1 of the next loewer bound
-        curr_df = df.loc[(df['label'] == f'{l_bound}-{h_bound}_{span}') & (df['split'] == SPLIT)]
-        num_examples_dict[f'{l_bound}-{h_bound}'] = 0 if len(curr_df) == 0 else curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
-        if allSpans: # if include all spans, including w/ small dist
-            exp_layer_dict[f'{l_bound}-{h_bound}'], _, _, _ = calc_expected_layer(curr_df)
-        elif num_examples_dict[f'{l_bound}-{h_bound}'] / total_example_num > MIN_EXAMPLES_CNT_percent: # (len(curr_df) != 0) and (curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT):
-            exp_layer_dict[f'{l_bound}-{h_bound}'], _, _, _ = calc_expected_layer(curr_df)
-    # the rest
-    curr_df = df.loc[(df['label'] == f'{AT_LEAST}_{max_threshold_distance}_{span}') & (df['split'] == SPLIT)]
-    num_examples_dict[f'{max_threshold_distance}+'] = 0 if len(curr_df) == 0 else curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
-    if allSpans: # if include all spans, including w/ small dist
-        exp_layer_dict[f'{max_threshold_distance}+'], _, _, _ = calc_expected_layer(curr_df)
-    elif num_examples_dict[f'{max_threshold_distance}+'] / total_example_num > MIN_EXAMPLES_CNT_percent_LEFTOVERS: #(len(curr_df) != 0) and (curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT):
-       exp_layer_dict[f'{max_threshold_distance}+'], _, _, _ = calc_expected_layer(curr_df)
-    span_probability = {k : num_examples_dict[k]/total_example_num for k in num_examples_dict.keys()}
-    return exp_layer_dict, span_probability
-
-def min_span_less_one_percent(df,max_threshold_distance,span):
-    _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=True, span=span)
-    span_probability_df = pd.DataFrame(list(span_probability_dic.values()))
-    # first idx when the span prob < 1% and mul by the casual effect span size to normalize (unless there's no such and them return the maximinum span possible
-    if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent):
-        return (np.argmax(span_probability_df<=MIN_EXAMPLES_CNT_percent)) * CASUAL_EFFECT_SPAN_SIZE
-    return (len(span_probability_df) - 1) * CASUAL_EFFECT_SPAN_SIZE
-
-def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=False, span1=SPAN1_SPAN2_DIST ,span2=SPAN1_SPAN2_DIST):
-    max_threshold_distance = min(min_span_less_one_percent(df1,max_threshold_distance1,span1), min_span_less_one_percent(df2,max_threshold_distance2,span2))
-    exp_layer_dict1, span_probability1 = TCE_helper(df1, max_threshold_distance, allSpans=allSpans,span=span1)
-    exp_layer_dict2, span_probability2 = TCE_helper(df2, max_threshold_distance, allSpans=allSpans,span=span2)
-    return exp_layer_dict1, exp_layer_dict2, span_probability1, span_probability2
+    def get_exp_and_best_layer_dict(self, df, max_threshold_distance, span=SPAN1_SPAN2_DIST, at_most_least=AT_MOST):
+        # span = span type: span1 length (if only span1), distance between span1 and span 2 or the total length of span1
+        #           to span2 (or vice versa). can be SPAN1_LEN, SPAN1_SPAN2_LEN or SPAN1_SPAN2_DIST
+        # at_most_least = whether the close threshold (<=thr) or the far threshold (>=thr)
+        exp_layer_dict, var_layer_dict, first_negative_delta_dict, best_layer_dict, num_examples_dict = dict(), dict(), dict(), dict(), dict()
+        for THRESHOLD_DISTANCE in range(1, max_threshold_distance):
+            curr_df = df.loc[(df['label'] == f'{at_most_least}_{THRESHOLD_DISTANCE}_{span}') & (df['split'] == SPLIT)]
+            num_examples_dict[THRESHOLD_DISTANCE] = curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
+            if curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT:
+                exp_layer_dict[THRESHOLD_DISTANCE], first_negative_delta_dict[THRESHOLD_DISTANCE], var_layer_dict[
+                    THRESHOLD_DISTANCE], best_layer_dict[THRESHOLD_DISTANCE] = calc_expected_layer(curr_df)
+        return exp_layer_dict, first_negative_delta_dict, var_layer_dict, best_layer_dict, num_examples_dict
 
 def TCE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
     # Total Casual Effect (TCE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
@@ -126,11 +68,7 @@ def get_exp_and_best_layer_dict(df, max_threshold_distance, span = SPAN1_SPAN2_D
     # span = span type: span1 length (if only span1), distance between span1 and span 2 or the total length of span1
     #           to span2 (or vice versa). can be SPAN1_LEN, SPAN1_SPAN2_LEN or SPAN1_SPAN2_DIST
     # at_most_least = whether the close threshold (<=thr) or the far threshold (>=thr)
-    exp_layer_dict = dict()
-    var_layer_dict = dict()
-    first_negative_delta_dict = dict()
-    best_layer_dict = dict()
-    num_examples_dict = dict()
+    exp_layer_dict , var_layer_dict, first_negative_delta_dict, best_layer_dict, num_examples_dict= dict(), dict(), dict(), dict(), dict()
     for THRESHOLD_DISTANCE in range(1, max_threshold_distance):
         curr_df = df.loc[(df['label'] == f'{at_most_least}_{THRESHOLD_DISTANCE}_{span}') & (df['split'] == SPLIT)]
         num_examples_dict[THRESHOLD_DISTANCE] = curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
@@ -193,3 +131,15 @@ def impose_max_min(span_exp_layer):
                 j_vals = span_exp_layer[j].values()
                 diffs[j + ' minus ' + k] = {'max minus min' : max(j_vals) - min(k_vals), 'min minus max' : min(j_vals) - max(k_vals)}
     return diffs
+
+
+def main(args):
+    a = DataAll()
+    b = Result(a.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
+    print('end')
+
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+    sys.exit(0)
