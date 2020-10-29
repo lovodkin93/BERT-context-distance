@@ -140,31 +140,46 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
             new_df = new_df.append(relevant_sub_df(span_exp_layer_df, task))
         return new_df
 
+    def max_exp(df, task):
+        return max(df.loc[df['task'] == task][y_label])
+
+    def min_exp(df, task):
+        return min(df.loc[df['task'] == task][y_label])
+
+    def get_task_order(new_df):
+        return list(pd.DataFrame({t:max_exp(new_df, t) for t in new_df['task']}, index=[0]).transpose().sort_values(by=0).index)
+        # ordered_tasks_df = new_df.loc[new_df[x_label] == '0-2'] if x_label=='spans' else new_df.loc[new_df[x_label] == 1]
+        # ordered_tasks_df = ordered_tasks_df.sort_values(by=y_label)
+        # return list(ordered_tasks_df['task'])
+
     new_df = get_new_df(span_exp_layer)
+    task_order_list = get_task_order(new_df)
+    task_order_list.reverse()
+    new_df = new_df.set_index('task').loc[task_order_list].reset_index()
     custom_palette = sns.color_palette("colorblind", 8)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-
+    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 19.5,
+          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25, "lines.linewidth": 3, "lines.markersize": 8}
+    sns.set(rc=rc)
     lnp = sns.lineplot(x=x_label, y=y_label, data=new_df, hue="task",
                  style="task", palette=sns.set_palette(custom_palette), dashes=False,
-                 markers=["o", "<", ">", "*", "d", "X" ], legend="brief", )
+                 markers=["o", "<", ">", "*", "d", "X" , "s"], legend="brief", )
+    #plt.setp(lnp.get_legend().get_texts(), fontsize='25')  # for legend text
     axes = lnp.axes
     axes.set_xlim(-0.1, xlim + 0.1)
 
     if barGraphToo:
         def get_min_max_df(new_df):
-            def max_exp(df, task):
-                return max(df.loc[df['task'] == task]['expected layer'])
-
-            def min_exp(df, task):
-                return min(df.loc[df['task'] == task]['expected layer'])
-
             min_max = pd.DataFrame([{'task': t, 'min': min_exp(new_df, t), 'max': max_exp(new_df, t)} for t in new_df['task']]).drop_duplicates()
             min_max_df = min_max[['task', 'min']].rename(columns = {'min': 'expected layer'}, inplace = False)
             min_max_df = min_max_df.append(min_max[['task', 'max']].rename(columns = {'max': 'expected layer'}, inplace = False))
             return min_max_df
 
+        task_order_list.reverse()
+        task_order_dict = {task: task_order_list.index(task) for task in task_order_list}
         min_max_df = get_min_max_df(new_df)
+
 
         fig, ax = plt.subplots()
         tmp_df = list(min_max_df.loc[min_max_df['task']=='co-reference']['expected layer'])
@@ -176,9 +191,9 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
             tmp_df = list(min_max_df.loc[min_max_df['task']==task]['expected layer'])
             start = tmp_df[0]
             diff = tmp_df[1] - tmp_df[0]
-            ax.broken_barh([(start, diff)], (i*1.2, 1), facecolors=custom_palette[i])
+            ax.broken_barh([(start, diff)], (task_order_dict[task]*1.2, 1), facecolors=custom_palette[i])
             ax.text(x=start + diff/2,
-                    y=i*1.2 + 0.5,
+                    y=task_order_dict[task]*1.2 + 0.5,
                     s=updated_task,
                     ha='center',
                     va='center',
@@ -261,13 +276,21 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
         return total_df
 
     total_df = get_total_df()
-    # total_df = total_df.replace('non-terminals to SRL', 'E(SRL)-E(non-terminals)\n(for NDE - non-terminals span distribution)')
-    # total_df = total_df.replace('co-reference to NER', 'E(co-reference)-E(NER)\n(for NDE - co-reference span distribution)')
-    # total_df = total_df.replace('SPR to co-reference', 'E(SPR)-E(co-reference)\n(for NDE - SPR span distribution)')
+    # total_df = total_df.loc[(total_df['tasks'] == 'SPR to relations') | (total_df['tasks'] == 'SRL to dependencies') | (
+    #             total_df['tasks'] == 'co-reference to relations')]
+    # total_df = total_df.replace('SPR to relations', 'E(SPR)-E(relations)\n(for NDE - \nSPR span distribution)')
+    # total_df = total_df.replace('SRL to dependencies', 'E(dependencies)-E(SRL)\n(for NDE - \nSRL span distribution)')
+    # total_df = total_df.replace('co-reference to relations',
+    #                             'E(relations)-E(co-reference)\n(for NDE - \nco-reference span distribution)')
     # total_df['result'] = pd.DataFrame.abs(pd.to_numeric(total_df['result']))
+    # total_df.index = range(total_df.shape[0])
+    # total_df.at[0, 'result'] = str(-1 * float(total_df.at[0, 'result']))
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    lnp = sns.barplot(x='tasks', y='result', data=total_df, hue="value", palette="hot")
+    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 20,
+          'axes.titlesize': 25, 'xtick.labelsize': 20, 'ytick.labelsize': 20}
+    sns.set(rc=rc)
+    lnp = sns.barplot(x='tasks', y='result', data=total_df, hue="value", palette="colorblind")
 
 def plot_diffs_max_min(diffs_max_min):
     import math
@@ -290,8 +313,11 @@ def plot_diffs_max_min(diffs_max_min):
     new_df = get_new_df(diffs_max_min)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
+    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 14,
+          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25}
+    sns.set(rc=rc)
     sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
-                palette="hot", )
+                palette="colorblind", )
 
 def plot_sympson_paradox(span_dict, simple_task, complex_task):
     def relevant_sub_df(df, task):
@@ -315,9 +341,11 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task):
     new_df = new_df.append({'task': 'NER (span: 9+)', 'spans': '', 'Expected Layer': span_dict[simple_task]['9+']}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
+    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 16,
+          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25}
+    sns.set(rc=rc)
     sns.barplot(x="spans", y='Expected Layer', data=new_df, hue="task",
-                palette="hot", )
+                palette="colorblind", )
     xlabels = tuple(pd.Series.unique(new_df['spans']))
-    plt.xticks(np.arange(len(xlabels)) - 0.2, xlabels, rotation=0, fontsize="10", va="center")
-
+    plt.xticks(np.arange(len(xlabels)) - 0.2, xlabels, rotation=0, fontsize="18.5", va="center")
 

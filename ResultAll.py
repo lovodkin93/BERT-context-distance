@@ -22,7 +22,8 @@ MAX_SRL_THRESHOLD_DISTANCE = 22
 MAX_NER_THRESHOLD_DISTANCE = 9
 MAX_NONTERMINAL_THRESHOLD_DISTANCE = 55
 MAX_DEP_THRESHOLD_DISTANCE = 30
-MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE)
+MAX_REL_THRESHOLD_DISTANCE = 9
+MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE , MAX_REL_THRESHOLD_DISTANCE)
 BERT_LAYERS=12
 MIN_EXAMPLES_CNT = 700
 MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
@@ -171,17 +172,17 @@ def get_exp_and_best_layer_dict(df, max_threshold_distance, span = SPAN1_SPAN2_D
     return exp_layer_dict, first_negative_delta_dict, var_layer_dict,  best_layer_dict, num_examples_dict
 
 
-def get_all_TCE_CDE_NIE_NDE(df_compare_to,span_compare_to, str_compare_to,max_thr_compare_to, df_nonterminals, df_dep, df_ner, df_srl, df_coref, df_spr, df_exp_layer):
+def get_all_TCE_CDE_NIE_NDE(df_compare_to,span_compare_to, str_compare_to,max_thr_compare_to, df_nonterminals, df_dep, df_ner, df_srl, df_coref, df_rel, df_spr, df_exp_layer):
     TCE, CDE, NDE, NIE, exp_layer_diff = dict(), dict(), dict(), dict(), dict()
 
     if str_compare_to != "non-terminals":
         a = str_compare_to + ' to non-terminals'
         TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_nonterminals, max_thr_compare_to,MAX_NONTERMINAL_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to,span2=SPAN1_LEN)
         exp_layer_diff[a] = df_exp_layer['non-terminals'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "Universal Dependencies":
-        a = str_compare_to + ' to Universal Dependencies'
+    if str_compare_to != "dependencies":
+        a = str_compare_to + ' to dependencies'
         TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_dep, max_thr_compare_to,MAX_DEP_THRESHOLD_DISTANCE, allSpans=False,span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['Universal Dependencies'] - df_exp_layer[str_compare_to]
+        exp_layer_diff[a] = df_exp_layer['dependencies'] - df_exp_layer[str_compare_to]
     if str_compare_to != "NER":
         a = str_compare_to + ' to NER'
         TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_ner, max_thr_compare_to, MAX_NER_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to, span2=SPAN1_LEN)
@@ -194,6 +195,10 @@ def get_all_TCE_CDE_NIE_NDE(df_compare_to,span_compare_to, str_compare_to,max_th
         a = str_compare_to + ' to co-reference'
         TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_coref, max_thr_compare_to, MAX_COREF_OLD_THRESHOLD_DISTANCE,allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
         exp_layer_diff[a] = df_exp_layer['co-reference'] - df_exp_layer[str_compare_to]
+    if str_compare_to != "relations":
+        a = str_compare_to + ' to relations'
+        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_rel, max_thr_compare_to, MAX_REL_THRESHOLD_DISTANCE ,allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
+        exp_layer_diff[a] = df_exp_layer['relations'] - df_exp_layer[str_compare_to]
     if str_compare_to != "SPR":
         a = str_compare_to + ' to SPR'
         TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_spr, max_thr_compare_to, MAX_SPR_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
@@ -208,7 +213,7 @@ def biggest_TCE_NDE_diff(TCE_all,NDE_all, NIE_all):
 
     change_dict = {k: (calc_change(TCE_all[ref_task][k], NDE_all[ref_task][k])) for ref_task in NDE_all.keys() for k in NDE_all[ref_task].keys()}
     change_perc_dict = {k: change_dict[k]['change(%)'] for k in change_dict.keys()}
-    largest_change = nlargest(3, change_dict, key=change_perc_dict.get)
+    largest_change = nlargest(6, change_dict, key=change_perc_dict.get)
     return {elem : change_dict[elem] for elem in largest_change}
 
 def impose_max_min(span_exp_layer):
