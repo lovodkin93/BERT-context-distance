@@ -29,7 +29,6 @@ MIN_EXAMPLES_CNT = 700
 MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
 MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.004
 CASUAL_EFFECT_SPAN_SIZE = 3
-NER_CASUAL_EFFECT_SPAN_SIZE = CASUAL_EFFECT_SPAN_SIZE
 
 ID_COLS = ['run', 'task', 'split']
 
@@ -95,6 +94,39 @@ def TCE_helper(df, max_threshold_distance, allSpans=False, span=SPAN1_SPAN2_DIST
        exp_layer_dict[f'{max_threshold_distance}+'], _, _, _ = calc_expected_layer(curr_df)
     span_probability = {k : num_examples_dict[k]/total_example_num for k in num_examples_dict.keys()}
     return exp_layer_dict, span_probability
+
+def TCE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
+    # Total Casual Effect (TCE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
+    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1,df2,max_thr_distance1,max_thr_distance2, allSpans, span1, span2)
+    total_exp1 = sum([exp_layer_dict1[k] * span_prob_dict1[k] for k in exp_layer_dict1.keys() if k in exp_layer_dict2.keys()]) # according to the total expectation formula
+    total_exp2 = sum([exp_layer_dict2[k] * span_prob_dict2[k] for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()]) # according to the total expectation formula
+    return total_exp2-total_exp1
+
+def CDE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
+    # Controlled Direct Effect (CDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
+    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1, max_thr_distance2, allSpans, span1, span2)
+    return {k : (exp_layer_dict2[k]- exp_layer_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
+
+def NDE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
+    # Natural Direct Effect (NDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
+    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1, max_thr_distance2, allSpans, span1, span2)
+    diff = {k : (exp_layer_dict2[k]- exp_layer_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
+    return sum([span_prob_dict1[k]*diff[k] for k in diff.keys()])
+
+def NIE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
+    # Natural Direct Effect (NDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
+    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1,max_thr_distance2, allSpans, span1, span2)
+    diff = {k: (span_prob_dict2[k] - span_prob_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
+    return sum([exp_layer_dict1[k] * diff[k] for k in diff.keys()])
+
+def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, span1=SPAN1_SPAN2_DIST, span2=SPAN1_SPAN2_DIST):
+    # span1/2 = that we check the span_distance parameter, span1_length or span1_span2_length for df1,df2 respectively
+    # returns TCE, CDE. NDE and NIE
+    TCE = TCE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=True, span1=span1, span2=span2)
+    CDE = CDE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
+    NDE = NDE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
+    NIE = NIE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
+    return TCE, CDE, NDE, NIE
 
 def min_span_less_one_percent(df,max_threshold_distance,span):
     _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=True, span=span)

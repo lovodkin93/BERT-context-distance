@@ -9,13 +9,16 @@ from DataAll import *
 from utils import *
 
 class Result:
-    def __init__(self, data_class, max_thr, at_most_least):
+    def __init__(self, data_class, max_thr, at_most_least, context_distance, dataAll_class):
         # dict - for threshold, no dict - the general case - when looking at all instances
         self.data_class = data_class
-        self.expected_layer, self.first_neg_delta, self.var_layer, self.best_num_layer = calc_expected_layer(data_class.data_df)
-        self.expected_layer_dict, self.first_neg_delta_dict, self.var_layer_dict, self.best_layer_dict, self.num_examples_dict = self.get_exp_and_best_layer_dict(data_class.data_df, max_thr, at_most_least=at_most_least)
+        df = data_class.data_df.loc[ (data_class.data_df['label'] == '_micro_avg_') & (data_class.data_df['split'] == SPLIT)]
+        self.expected_layer, self.first_neg_delta, self.var_layer, self.best_num_layer = calc_expected_layer(df)
+        self.expected_layer_dict, self.first_neg_delta_dict, self.var_layer_dict, self.best_layer_dict, self.num_examples_dict = self.calculate_thr_dict_values(data_class.data_df, max_thr, span=context_distance, at_most_least=at_most_least)
+        self.span_exp_layer, self.span_prob =  TCE_helper(data_class.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=True, span=context_distance) #FIXME: update functions calling TCE_helper so no double calling (in utils)
+        self.TCE, self.CDE, self.NDE, self.NIE = self.calculate_TCE_CDE_NIE_NDE(data_class, context_distance, data_class.name, max_thr, dataAll_class)
 
-    def get_exp_and_best_layer_dict(self, df, max_threshold_distance, span=SPAN1_SPAN2_DIST, at_most_least=AT_MOST):
+    def calculate_thr_dict_values(self, df, max_threshold_distance, span=SPAN1_SPAN2_DIST, at_most_least=AT_MOST):
         # span = span type: span1 length (if only span1), distance between span1 and span 2 or the total length of span1
         #           to span2 (or vice versa). can be SPAN1_LEN, SPAN1_SPAN2_LEN or SPAN1_SPAN2_DIST
         # at_most_least = whether the close threshold (<=thr) or the far threshold (>=thr)
@@ -28,114 +31,124 @@ class Result:
                     THRESHOLD_DISTANCE], best_layer_dict[THRESHOLD_DISTANCE] = calc_expected_layer(curr_df)
         return exp_layer_dict, first_negative_delta_dict, var_layer_dict, best_layer_dict, num_examples_dict
 
-def TCE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
-    # Total Casual Effect (TCE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
-    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1,df2,max_thr_distance1,max_thr_distance2, allSpans, span1, span2)
-    total_exp1 = sum([exp_layer_dict1[k] * span_prob_dict1[k] for k in exp_layer_dict1.keys() if k in exp_layer_dict2.keys()]) # according to the total expectation formula
-    total_exp2 = sum([exp_layer_dict2[k] * span_prob_dict2[k] for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()]) # according to the total expectation formula
-    return total_exp2-total_exp1
+    def calculate_TCE_CDE_NIE_NDE(self, task_data, context_distance, task_name, max_thr, dataAll_class):
+        TCE, CDE, NDE, NIE = dict(), dict(), dict(), dict()
+        a = vars(dataAll_class)
+        b = list()
+        for task in vars(dataAll_class).values():
+            if task.name != task_data.name:
+                a = task_data.name + ' to ' + task.name
+                TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(task_data.data_df, task.data_df, max_thr, task.max_thr,
+                                                             allSpans=False, span1=context_distance,
+                                                             span2=task.context_distance)
+        return TCE, CDE, NDE, NIE
 
-def CDE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
-    # Controlled Direct Effect (CDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
-    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1, max_thr_distance2, allSpans, span1, span2)
-    return {k : (exp_layer_dict2[k]- exp_layer_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
+    def get_general_values(self):
+        return self.expected_layer, self.first_neg_delta, self.var_layer, self.best_num_layer
 
-def NDE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
-    # Natural Direct Effect (NDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
-    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1, max_thr_distance2, allSpans, span1, span2)
-    diff = {k : (exp_layer_dict2[k]- exp_layer_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
-    return sum([span_prob_dict1[k]*diff[k] for k in diff.keys()])
+    def get_thr_dict_values(self):
+        return self.expected_layer_dict, self.first_neg_delta_dict, self.var_layer_dict, self.best_layer_dict, self.num_examples_dict
 
-def NIE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,span2):
-    # Natural Direct Effect (NDE) of changing from Grammer task whose df is df1 to Grammer task whose df is df2
-    exp_layer_dict1, exp_layer_dict2, span_prob_dict1, span_prob_dict2 = get_exp_prob(df1, df2, max_thr_distance1,max_thr_distance2, allSpans, span1, span2)
-    diff = {k: (span_prob_dict2[k] - span_prob_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
-    return sum([exp_layer_dict1[k] * diff[k] for k in diff.keys()])
+    def get_TCE_CDE_NIE_NDE(self):
+        return self.TCE, self.CDE, self.NDE, self.NIE
 
-def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, span1=True, span2=True):
-    # span1/2 = that we check the span_distance parameter, span1_length or span1_span2_length for df1,df2 respectively
-    # returns TCE, CDE. NDE and NIE
-    TCE = TCE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=True, span1=span1, span2=span2)
-    CDE = CDE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
-    NDE = NDE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
-    NIE = NIE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=allSpans, span1=span1, span2=span2)
-    return TCE, CDE, NDE, NIE
+    def get_span_values(self):
+        return self.span_exp_layer, self.span_prob
 
-def seperate_CDE(df,allSpans, span):
-    exp_layer_dict1, span_probability1 = TCE_helper(df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=allSpans, span=span)
+    def get_expected_layer_diff(self, all_exp_layers_dict):
+        exp_layer_diff_dict = dict()
+        for task_name in all_exp_layers_dict:
+            if self.data_class.name != task_name:
+                name = self.data_class.name + " to " + task_name
+                exp_layer_diff_dict[name] = all_exp_layers_dict[task_name] - self.expected_layer
+        return exp_layer_diff_dict
 
-def get_exp_and_best_layer_dict(df, max_threshold_distance, span = SPAN1_SPAN2_DIST, at_most_least = AT_MOST):
-    # span = span type: span1 length (if only span1), distance between span1 and span 2 or the total length of span1
-    #           to span2 (or vice versa). can be SPAN1_LEN, SPAN1_SPAN2_LEN or SPAN1_SPAN2_DIST
-    # at_most_least = whether the close threshold (<=thr) or the far threshold (>=thr)
-    exp_layer_dict , var_layer_dict, first_negative_delta_dict, best_layer_dict, num_examples_dict= dict(), dict(), dict(), dict(), dict()
-    for THRESHOLD_DISTANCE in range(1, max_threshold_distance):
-        curr_df = df.loc[(df['label'] == f'{at_most_least}_{THRESHOLD_DISTANCE}_{span}') & (df['split'] == SPLIT)]
-        num_examples_dict[THRESHOLD_DISTANCE] = curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
-        if curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT:
-            exp_layer_dict[THRESHOLD_DISTANCE], first_negative_delta_dict[THRESHOLD_DISTANCE], var_layer_dict[THRESHOLD_DISTANCE], best_layer_dict[THRESHOLD_DISTANCE] = calc_expected_layer(curr_df)
-    return exp_layer_dict, first_negative_delta_dict, var_layer_dict,  best_layer_dict, num_examples_dict
+class ResultAll:
+    def __init__(self, dataAll_class, at_most_least=AT_MOST):
+        self.dataAll_class = dataAll_class
+        self.nonterminals = Result(dataAll_class.nonterminals, MAX_NONTERMINAL_THRESHOLD_DISTANCE,at_most_least=at_most_least, context_distance=SPAN1_LEN, dataAll_class=dataAll_class)
+        self.dependencies = Result(dataAll_class.dependencies, MAX_DEP_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.ner = Result(dataAll_class.ner, MAX_NER_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_LEN, dataAll_class=dataAll_class)
+        self.srl = Result(dataAll_class.srl, MAX_SRL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.coreference = Result(dataAll_class.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.relations = Result(dataAll_class.relations, MAX_REL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.spr = Result(dataAll_class.spr, MAX_SPR_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
 
+    def get_all_expected_layers(self):
+        exp_layer_all = dict()
+        # for task in vars(self.dataAll_class).values():
+        #     df = task.data_df
+        #     curr_df = df.loc[(df['label'] == '_micro_avg_') & (df['split'] == SPLIT)]
+        #     exp_layer_all[task.name], _, _, _ = calc_expected_layer(curr_df)
+        for task in vars(self).values():
+            if hasattr(task, 'expected_layer'):
+                exp_layer_all[task.data_class.name] = task.expected_layer
+        return exp_layer_all
 
-def get_all_TCE_CDE_NIE_NDE(df_compare_to,span_compare_to, str_compare_to,max_thr_compare_to, df_nonterminals, df_dep, df_ner, df_srl, df_coref, df_rel, df_spr, df_exp_layer):
-    TCE, CDE, NDE, NIE, exp_layer_diff = dict(), dict(), dict(), dict(), dict()
+    def get_all_TCE_CDE_NIE_NDE(self):
+        TCE_all, CDE_all, NDE_all, NIE_all = dict(), dict(), dict(), dict()
+        for task in vars(self).values():
+            if hasattr(task, 'NDE'):
+                name = task.data_class.name
+                TCE_all[name], CDE_all[name], NDE_all[name], NIE_all[name] = task.TCE, task.CDE, task.NDE, task.NIE
+        return TCE_all, CDE_all, NDE_all, NIE_all
 
-    if str_compare_to != "non-terminals":
-        a = str_compare_to + ' to non-terminals'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_nonterminals, max_thr_compare_to,MAX_NONTERMINAL_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to,span2=SPAN1_LEN)
-        exp_layer_diff[a] = df_exp_layer['non-terminals'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "dependencies":
-        a = str_compare_to + ' to dependencies'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_dep, max_thr_compare_to,MAX_DEP_THRESHOLD_DISTANCE, allSpans=False,span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['dependencies'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "NER":
-        a = str_compare_to + ' to NER'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_ner, max_thr_compare_to, MAX_NER_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to, span2=SPAN1_LEN)
-        exp_layer_diff[a] = df_exp_layer['NER'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "SRL":
-        a = str_compare_to + ' to SRL'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_srl, max_thr_compare_to, MAX_SRL_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['SRL'] - df_exp_layer[str_compare_to]
-    if "co-reference" not in str_compare_to:
-        a = str_compare_to + ' to co-reference'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_coref, max_thr_compare_to, MAX_COREF_OLD_THRESHOLD_DISTANCE,allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['co-reference'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "relations":
-        a = str_compare_to + ' to relations'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_rel, max_thr_compare_to, MAX_REL_THRESHOLD_DISTANCE ,allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['relations'] - df_exp_layer[str_compare_to]
-    if str_compare_to != "SPR":
-        a = str_compare_to + ' to SPR'
-        TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(df_compare_to, df_spr, max_thr_compare_to, MAX_SPR_THRESHOLD_DISTANCE, allSpans=False, span1=span_compare_to, span2=SPAN1_SPAN2_DIST)
-        exp_layer_diff[a] = df_exp_layer['SPR'] - df_exp_layer[str_compare_to]
-    return TCE, CDE, NDE, NIE, exp_layer_diff
+    def get_all_expected_layer_diff(self):
+        exp_layer_diff_dict = dict()
+        for task in vars(self).values():
+            if hasattr(task, 'data_class'):
+                exp_layer_diff_dict[task.data_class.name] = task.get_expected_layer_diff(self.get_all_expected_layers())
+        return exp_layer_diff_dict
 
-def biggest_TCE_NDE_diff(TCE_all,NDE_all, NIE_all):
-    def calc_change(TCE, NDE):
-        increase_decrease = 'decrease' if abs(TCE) > abs(NDE) else 'increase'
-        change_difficulty_balance = True if ((TCE > 0 and NDE < 0) or (TCE < 0 and NDE > 0)) else False
-        return {'incr/decr':increase_decrease , 'change(%)':abs((TCE - NDE) / TCE)*100, 'change(abs val)':abs(TCE - NDE), 'change difficulty balance':change_difficulty_balance}
+    def get_all_span_exp_layer_prob(self):
+        span_exp_layer, span_prob = dict(), dict()
+        for task in vars(self.dataAll_class).values():
+            span_exp_layer[task.name], span_prob[task.name] = TCE_helper(task.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=True, span=task.context_distance)
+        return span_exp_layer, span_prob
 
-    change_dict = {k: (calc_change(TCE_all[ref_task][k], NDE_all[ref_task][k])) for ref_task in NDE_all.keys() for k in NDE_all[ref_task].keys()}
-    change_perc_dict = {k: change_dict[k]['change(%)'] for k in change_dict.keys()}
-    largest_change = nlargest(6, change_dict, key=change_perc_dict.get)
-    return {elem : change_dict[elem] for elem in largest_change}
+    def get_all_thr_dict_values(self):
+        exp_layer_dict, first_neg_delta_dict, var_layer_dict, best_layer_dict, num_examples_dict = dict(), dict(), dict(), dict(), dict()
+        for task in vars(self).values():
+            if hasattr(task, 'data_class'):
+                name = task.data_class.name
+                exp_layer_dict[name], first_neg_delta_dict[name], var_layer_dict[name], \
+                                            best_layer_dict[name], num_examples_dict[name] = task.get_thr_dict_values()
+        return exp_layer_dict, first_neg_delta_dict, var_layer_dict, best_layer_dict, num_examples_dict
 
-def impose_max_min(span_exp_layer):
-    # returns diffs, a dict whose keys are of structure "k to j" where k and j are grammatical tasks, and the values are lists where each time we subtract k's expected layer from j's, when the first elem of the list j's exp layer is the max of all the spans and k's is the min and the second elem vice versa
-    diffs = dict()
-    for k in span_exp_layer.keys():
-        for j in span_exp_layer.keys():
-            if k + ' minus ' + j not in diffs.keys() and j != k:
-                k_vals = span_exp_layer[k].values()
-                j_vals = span_exp_layer[j].values()
-                diffs[j + ' minus ' + k] = {'max minus min' : max(j_vals) - min(k_vals), 'min minus max' : min(j_vals) - max(k_vals)}
-    return diffs
+    def get_biggest_exp_layer_diff_NDE_diff(self, isTCE=False):
+        # isTCE is for the case when I eant to compare the TCE to the NDE and not the actual expected layer difference
+        def calc_change(exp_layer_diff, NDE):
+            increase_decrease = 'decrease' if abs(exp_layer_diff) > abs(NDE) else 'increase'
+            change_difficulty_balance = True if ((exp_layer_diff > 0 and NDE < 0) or (exp_layer_diff < 0 and NDE > 0)) else False
+            return {'incr/decr': increase_decrease, 'change(%)': abs((exp_layer_diff - NDE) / exp_layer_diff) * 100,
+                    'change(abs val)': abs(exp_layer_diff - NDE), 'change difficulty balance': change_difficulty_balance}
+
+        TCE_all, _, NDE_all, _ = self.get_all_TCE_CDE_NIE_NDE()
+        exp_layer_diff = TCE_all if isTCE else self.get_all_expected_layer_diff()
+        change_dict = {k: (calc_change(exp_layer_diff[ref_task][k], NDE_all[ref_task][k])) for ref_task in NDE_all.keys() for k
+                       in NDE_all[ref_task].keys()}
+        change_perc_dict = {k: change_dict[k]['change(%)'] for k in change_dict.keys()}
+        largest_change = nlargest(6, change_dict, key=change_perc_dict.get)
+        return {elem: change_dict[elem] for elem in largest_change}
+
+    def impose_max_min(self):
+        # returns diffs, a dict whose keys are of structure "k to j" where k and j are grammatical tasks, and the values are lists where each time we subtract k's expected layer from j's, when the first elem of the list j's exp layer is the max of all the spans and k's is the min and the second elem vice versa
+        span_exp_layer, _ = self.get_all_span_exp_layer_prob()
+        diffs = dict()
+        for k in span_exp_layer.keys():
+            for j in span_exp_layer.keys():
+                if k + ' minus ' + j not in diffs.keys() and j != k:
+                    k_vals = span_exp_layer[k].values()
+                    j_vals = span_exp_layer[j].values()
+                    diffs[j + ' minus ' + k] = {'max minus min': max(j_vals) - min(k_vals),
+                                                'min minus max': min(j_vals) - max(k_vals)}
+        return diffs
 
 
 def main(args):
     a = DataAll()
-    b = Result(a.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=AT_MOST)
+    b = ResultAll(a)
+    c = b.get_all_thr_dict_values()
     print('end')
 
 

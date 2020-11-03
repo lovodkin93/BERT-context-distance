@@ -27,11 +27,12 @@ import socket
 
 class Data:
 
-    def __init__(self, path, max_thr, name):
+    def __init__(self, path, max_thr, name, context_distance):
         self.name = name
         self.data_path = path
         self.max_thr = max_thr
         self.data_df = self.get_data(path, max_thr)
+        self.context_distance = context_distance
 
     def agg_stratifier_group(self, df, stratifier, key_predicate, group_name):
         agg_map = {k: "sum" for k in df.columns if k.endswith("_count")}
@@ -74,11 +75,11 @@ class Data:
             _eg.append(self.agg_stratifier_group(df, 'span1_length', lambda x: int(x) >= THRESHOLD_DISTANCE,
                                             f'at_least_{THRESHOLD_DISTANCE}_span1_len'))
             df = pd.concat([df] + _eg, ignore_index=True, sort=False)
-        for THRESHOLD_DISTANCE in range(0, max_threshold_distance + 1 - NER_CASUAL_EFFECT_SPAN_SIZE,
-                                        NER_CASUAL_EFFECT_SPAN_SIZE):
+        for THRESHOLD_DISTANCE in range(0, max_threshold_distance + 1 - CASUAL_EFFECT_SPAN_SIZE,
+                                        CASUAL_EFFECT_SPAN_SIZE):
             _eg = []
             l_bound = THRESHOLD_DISTANCE  # lower bound
-            h_bound = THRESHOLD_DISTANCE + NER_CASUAL_EFFECT_SPAN_SIZE - 1  # higher bound is minus 1 of the next loewer bound
+            h_bound = THRESHOLD_DISTANCE + CASUAL_EFFECT_SPAN_SIZE - 1  # higher bound is minus 1 of the next loewer bound
             _eg.append(self.agg_stratifier_group(df, 'span1_length', lambda x: l_bound <= int(x) <= h_bound,
                                             f'{l_bound}-{h_bound}_span1_len'))
             df = pd.concat([df] + _eg, ignore_index=True, sort=False)
@@ -89,11 +90,11 @@ class Data:
             _eg.append(self.agg_stratifier_group(df, 'span1_span2_length', lambda x: int(x) >= THRESHOLD_DISTANCE,
                                             f'at_least_{THRESHOLD_DISTANCE}_span1_span2_len'))
             df = pd.concat([df] + _eg, ignore_index=True, sort=False)
-        for THRESHOLD_DISTANCE in range(0, max_threshold_distance + 1 - NER_CASUAL_EFFECT_SPAN_SIZE,
-                                        NER_CASUAL_EFFECT_SPAN_SIZE):
+        for THRESHOLD_DISTANCE in range(0, max_threshold_distance + 1 - CASUAL_EFFECT_SPAN_SIZE,
+                                        CASUAL_EFFECT_SPAN_SIZE):
             _eg = []
             l_bound = THRESHOLD_DISTANCE  # lower bound
-            h_bound = THRESHOLD_DISTANCE + NER_CASUAL_EFFECT_SPAN_SIZE - 1  # higher bound is minus 1 of the next loewer bound
+            h_bound = THRESHOLD_DISTANCE + CASUAL_EFFECT_SPAN_SIZE - 1  # higher bound is minus 1 of the next loewer bound
             _eg.append(self.agg_stratifier_group(df, 'span1_span2_length', lambda x: l_bound <= int(x) <= h_bound,
                                             f'{l_bound}-{h_bound}_span1_span2_len'))
             df = pd.concat([df] + _eg, ignore_index=True, sort=False)
@@ -136,10 +137,10 @@ class Data:
 class DataAll:
 
     def __init__(self):
-        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'co-reference')
-        self.spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR')
-        self.srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL')
-        self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER')
-        self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'non-terminals')
-        self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'dependencies')
-        self.relations = Data("./scores/scores_rel.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'relations')
+        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'co-reference', context_distance=SPAN1_SPAN2_DIST)
+        self.spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR', context_distance=SPAN1_SPAN2_DIST)
+        self.srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL', context_distance=SPAN1_SPAN2_DIST)
+        self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER', context_distance=SPAN1_LEN)
+        self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'non-terminals', context_distance=SPAN1_LEN)
+        self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'dependencies', context_distance=SPAN1_SPAN2_DIST)
+        self.relations = Data("./scores/scores_rel.tsv", MAX_REL_THRESHOLD_DISTANCE, 'relations', context_distance=SPAN1_SPAN2_DIST)
