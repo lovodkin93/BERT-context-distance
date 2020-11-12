@@ -1,13 +1,5 @@
-import sys, os, re, json
-import itertools
-import collections
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
-from jiant import *
 from utils import *
-import re
 
 def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphToo=True):
 
@@ -88,7 +80,6 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
         ax.get_yaxis().set_visible(False)
         ax.grid(True)
         #plt.title("Expected Layer Ranges")
-        plt.show()
 
 def plot_CDE(cde):
 

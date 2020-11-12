@@ -6,7 +6,7 @@ import pandas as pd
 from heapq import nlargest
 from jiant import *
 from scipy.special import logsumexp
-
+import matplotlib.pyplot as plt
 
 SPAN1_LEN = 'span1_len'
 SPAN1_SPAN2_LEN = 'span1_span2_len'
