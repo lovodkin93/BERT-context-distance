@@ -1,3 +1,4 @@
 [submodule "jiant"]
 	path = jiant
-	url = https://github.com/lovodkin93/jiant
+	url = https://github.com/lovodkin93/jiant.git
+	branch = ep_frozen_20190723
