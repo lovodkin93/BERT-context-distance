@@ -14,3 +14,10 @@ Now, let's get your environment set up. Make sure you have conda installed, then
 cd BERT-context-distance/jiant
 conda env create -f environment.yml
 ```
+Now activate the `jiant` environment:
+
+`conda activate jiant`
+
+Now run:
+
+`python -m nltk.downloader perluniprops nonbreaking_prefixes punkt`
