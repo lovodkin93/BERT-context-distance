@@ -132,8 +132,8 @@ def min_span_less_one_percent(df,max_threshold_distance,span):
     _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=True, span=span)
     span_probability_df = pd.DataFrame(list(span_probability_dic.values()))
     # first idx when the span prob < 1% and mul by the casual effect span size to normalize (unless there's no such and them return the maximinum span possible
-    if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent):
-        return (np.argmax(span_probability_df<=MIN_EXAMPLES_CNT_percent)) * CASUAL_EFFECT_SPAN_SIZE
+    if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent)[0]:
+        return (np.argmax([span_probability_df<=MIN_EXAMPLES_CNT_percent])) * CASUAL_EFFECT_SPAN_SIZE
     return (len(span_probability_df) - 1) * CASUAL_EFFECT_SPAN_SIZE
 
 def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=False, span1=SPAN1_SPAN2_DIST ,span2=SPAN1_SPAN2_DIST):

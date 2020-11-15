@@ -38,7 +38,7 @@ def main(args):
     plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=biggest_exp_layer_NDE_difference, noTCE=True, noNDE=False, noNIE=True, noExpLayerDiff=False)
 
     plt.show()
-    #plot_all_CDE(CDE_all)
+    plot_all_CDE(CDE_all)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

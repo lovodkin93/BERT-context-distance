@@ -118,7 +118,7 @@ class Data:
 
     def get_data(self, file_name, max_threshold_distance):
         score_files = [("mix",
-                        "/cs/labs/oabend/lovodkin93/jiant_rep/jiant-ep_frozen_20190723/probing/" + file_name)]  # changes from the original Edgeprobe_Aggregate_Analysis.py
+                        file_name)]  # changes from the original Edgeprobe_Aggregate_Analysis.py
         dfs = []
         for tag, score_file in score_files:
             df = self.load_scores_file(score_file, tag=tag, max_threshold_distance=max_threshold_distance)

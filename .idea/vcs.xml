@@ -3,7 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/jiant" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/jiant/jiant/openai_transformer_lm/pytorch-openai-transformer-lm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jiant/jiant/modules/cove" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/jiant/jiant/openai_transformer_lm/pytorch_huggingface" vcs="Git" />
   </component>
 </project>

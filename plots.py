@@ -168,7 +168,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
             tasks = re.split(" to ", old_name)
             res = total_df.loc[total_df['tasks'] == old_name]['result']
             c = 1
-            if (float(res[0]) < 0 and float(res[1]) < 0):
+            if (float(res.values[0]) < 0 and float(res.values[1]) < 0):
                 new_name = 'E(' + tasks[0] + ')-E(' + tasks[1] + ')\n(for NDE - \n' + tasks[0] + ' span distribution)'
             else:
                 new_name = 'E(' + tasks[1] + ')-E(' + tasks[0] + ')\n(for NDE - \n' + tasks[0] + ' span distribution)'
@@ -180,7 +180,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
         pairs_to_update = list()
         for task_pair in relevant_tasks:
             results = total_df.loc[total_df.index == task_pair]['result']
-            if float(results[0]) < 0 and float(results[1]) < 0:
+            if float(results.values[0]) < 0 and float(results.values[1]) < 0:
                 pairs_to_update.append(task_pair)
         total_df.index = total_df.index + " " + total_df['value']
         for task_pair in pairs_to_update:
@@ -195,6 +195,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (total_df['tasks'] == relevant_tasks[2])]
     total_df = update_names(relevant_tasks, total_df)
     total_df=  update_neg_values(total_df, relevant_tasks) #FIXME: resolve
+    total_df['result'] = pd.to_numeric(total_df['result'])
     # total_df['result'] = pd.DataFrame.abs(pd.to_numeric(total_df['result']))
     # total_df.index = range(total_df.shape[0])
     # total_df.at[0, 'result'] = str(-1 * float(total_df.at[0, 'result']))
