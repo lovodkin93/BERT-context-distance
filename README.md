@@ -24,5 +24,11 @@ pip install seaborn
 pip install allennlp==0.8.4
 pip install sacremoses
 pip install pyhocon
-pip install numpy==1.19.3
+```
+
+## 2. Run
+Go back to the `BERT-context-distance` directory and run the main function:
+```
+cd ..
+python ./main.py
 ```
