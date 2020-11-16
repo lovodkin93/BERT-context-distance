@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 SPAN1_LEN = 'span1_len'
 SPAN1_SPAN2_LEN = 'span1_span2_len'
 SPAN1_SPAN2_DIST = 'span1_span2_dist'
+TWO_SPANS_SPAN = SPAN1_SPAN2_LEN
+ONE_SPAN_SPAN = SPAN1_LEN
 AT_LEAST = "at_least"
 AT_MOST = "at_most"
 
@@ -70,7 +72,7 @@ def calc_expected_layer(df):
         var_layer = (numerator_X_2 / denominator) - (exp_layer ** 2)  # varX = EX^2 - (EX)^2
     return exp_layer, first_neg_delta, var_layer, best_num_layer
 
-def TCE_helper(df, max_threshold_distance, allSpans=False, span=SPAN1_SPAN2_DIST):
+def TCE_helper(df, max_threshold_distance, allSpans=False, span=TWO_SPANS_SPAN):
     # span = types of span: SPAN1_LEN, SPAN1_SPAN2_LEN, SPAN1_SPAN2_DIST
     # returns the expected layer for each spans of coref_span and their probability
     exp_layer_dict = dict()
@@ -119,7 +121,7 @@ def NIE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,sp
     diff = {k: (span_prob_dict2[k] - span_prob_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
     return sum([exp_layer_dict1[k] * diff[k] for k in diff.keys()])
 
-def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, span1=SPAN1_SPAN2_DIST, span2=SPAN1_SPAN2_DIST):
+def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, span1=TWO_SPANS_SPAN, span2=TWO_SPANS_SPAN):
     # span1/2 = that we check the span_distance parameter, span1_length or span1_span2_length for df1,df2 respectively
     # returns TCE, CDE. NDE and NIE
     TCE = TCE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=True, span1=span1, span2=span2)
@@ -136,7 +138,7 @@ def min_span_less_one_percent(df,max_threshold_distance,span):
         return (np.argmax([span_probability_df<=MIN_EXAMPLES_CNT_percent])) * CASUAL_EFFECT_SPAN_SIZE
     return (len(span_probability_df) - 1) * CASUAL_EFFECT_SPAN_SIZE
 
-def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=False, span1=SPAN1_SPAN2_DIST ,span2=SPAN1_SPAN2_DIST):
+def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=False, span1=TWO_SPANS_SPAN ,span2=TWO_SPANS_SPAN):
     max_threshold_distance = min(min_span_less_one_percent(df1,max_threshold_distance1,span1), min_span_less_one_percent(df2,max_threshold_distance2,span2))
     exp_layer_dict1, span_probability1 = TCE_helper(df1, max_threshold_distance, allSpans=allSpans,span=span1)
     exp_layer_dict2, span_probability2 = TCE_helper(df2, max_threshold_distance, allSpans=allSpans,span=span2)

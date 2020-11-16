@@ -18,12 +18,12 @@ class Result:
         self.span_exp_layer, self.span_prob =  TCE_helper(data_class.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=True, span=context_distance) #FIXME: update functions calling TCE_helper so no double calling (in utils)
         self.TCE, self.CDE, self.NDE, self.NIE = self.calculate_TCE_CDE_NIE_NDE(data_class, context_distance, data_class.name, max_thr, dataAll_class)
 
-    def calculate_thr_dict_values(self, df, max_threshold_distance, span=SPAN1_SPAN2_DIST, at_most_least=AT_MOST):
+    def calculate_thr_dict_values(self, df, max_threshold_distance, span=TWO_SPANS_SPAN, at_most_least=AT_MOST):
         # span = span type: span1 length (if only span1), distance between span1 and span 2 or the total length of span1
         #           to span2 (or vice versa). can be SPAN1_LEN, SPAN1_SPAN2_LEN or SPAN1_SPAN2_DIST
         # at_most_least = whether the close threshold (<=thr) or the far threshold (>=thr)
         exp_layer_dict, var_layer_dict, first_negative_delta_dict, best_layer_dict, num_examples_dict = dict(), dict(), dict(), dict(), dict()
-        for THRESHOLD_DISTANCE in range(1, max_threshold_distance):
+        for THRESHOLD_DISTANCE in range(2, max_threshold_distance):
             curr_df = df.loc[(df['label'] == f'{at_most_least}_{THRESHOLD_DISTANCE}_{span}') & (df['split'] == SPLIT)]
             num_examples_dict[THRESHOLD_DISTANCE] = curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
             if curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT:
@@ -67,12 +67,12 @@ class ResultAll:
     def __init__(self, dataAll_class, at_most_least=AT_MOST):
         self.dataAll_class = dataAll_class
         self.nonterminals = Result(dataAll_class.nonterminals, MAX_NONTERMINAL_THRESHOLD_DISTANCE,at_most_least=at_most_least, context_distance=SPAN1_LEN, dataAll_class=dataAll_class)
-        self.dependencies = Result(dataAll_class.dependencies, MAX_DEP_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.dependencies = Result(dataAll_class.dependencies, MAX_DEP_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
         self.ner = Result(dataAll_class.ner, MAX_NER_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_LEN, dataAll_class=dataAll_class)
-        self.srl = Result(dataAll_class.srl, MAX_SRL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
-        self.coreference = Result(dataAll_class.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
-        self.relations = Result(dataAll_class.relations, MAX_REL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
-        self.spr = Result(dataAll_class.spr, MAX_SPR_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_SPAN2_DIST, dataAll_class=dataAll_class)
+        self.srl = Result(dataAll_class.srl, MAX_SRL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
+        self.coreference = Result(dataAll_class.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
+        self.relations = Result(dataAll_class.relations, MAX_REL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
+        self.spr = Result(dataAll_class.spr, MAX_SPR_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
 
     def get_all_expected_layers(self):
         exp_layer_all = dict()
@@ -128,7 +128,7 @@ class ResultAll:
         change_dict = {k: (calc_change(exp_layer_diff[ref_task][k], NDE_all[ref_task][k])) for ref_task in NDE_all.keys() for k
                        in NDE_all[ref_task].keys()}
         change_perc_dict = {k: change_dict[k]['change(%)'] for k in change_dict.keys()}
-        largest_change = nlargest(6, change_dict, key=change_perc_dict.get)
+        largest_change = nlargest(10, change_dict, key=change_perc_dict.get)
         return {elem: change_dict[elem] for elem in largest_change}
 
     def impose_max_min(self):
