@@ -245,7 +245,7 @@ def plot_diffs_max_min(diffs_max_min):
     sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
                 palette="colorblind", )
 
-def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_simple, specific_span_complex):
+def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_simple, specific_span_complex, ylim_max):
     def relevant_sub_df(df, task):
         span_df = pd.DataFrame(span_dict)
         span_df['spans'] = span_df.index
@@ -284,4 +284,6 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
     trans = mtrans.Affine2D().translate(60, 0)
     for t in ax.get_xticklabels():
         t.set_transform(t.get_transform() - trans)
+    ax.set_ylim(0, ylim_max)
+
 
