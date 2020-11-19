@@ -1,7 +1,7 @@
 import seaborn as sns
 from utils import *
 
-def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max , barGraphToo=True, isSpan=True):
+def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max ,ylim_min, ylim_max , barGraphToo=True, isSpan=True):
 
     def relevant_sub_df(span_exp_layer, task):
         span_exp_layer_df = pd.DataFrame(span_exp_layer)
@@ -41,40 +41,43 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
     custom_palette = sns.color_palette("colorblind", 8)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 16.5,
-          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25, "lines.linewidth": 3, "lines.markersize": 8}
+    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 21.5,
+          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30, "lines.linewidth": 3,
+          "lines.markersize": 8}
     sns.set(rc=rc)
     lnp = sns.lineplot(x=x_label, y=y_label, data=new_df, hue="task",
-                 style="task", palette=sns.set_palette(custom_palette), dashes=False,
-                 markers=["o", "<", ">", "*", "d", "X" , "s"], legend="brief", )
+                       style="task", palette=sns.set_palette(custom_palette), dashes=False,
+                       markers=["o", "<", ">", "*", "d", "X", "s"], legend="brief", )
     axes = lnp.axes
+    plt.gca().legend().set_title('')
     axes.set_xlim(xlim_min - 0.1, xlim_max + 0.1)
+    axes.set_ylim(ylim_min, ylim_max)
 
     if barGraphToo:
         def get_min_max_df(new_df):
-            min_max = pd.DataFrame([{'task': t, 'min': min_exp(new_df, t), 'max': max_exp(new_df, t)} for t in new_df['task']]).drop_duplicates()
-            min_max_df = min_max[['task', 'min']].rename(columns = {'min': 'expected layer'}, inplace = False)
-            min_max_df = min_max_df.append(min_max[['task', 'max']].rename(columns = {'max': 'expected layer'}, inplace = False))
+            min_max = pd.DataFrame([{'task': t, 'min': min_exp(new_df, t), 'max': max_exp(new_df, t)} for t in
+                                    new_df['task']]).drop_duplicates()
+            min_max_df = min_max[['task', 'min']].rename(columns={'min': 'expected layer'}, inplace=False)
+            min_max_df = min_max_df.append(
+                min_max[['task', 'max']].rename(columns={'max': 'expected layer'}, inplace=False))
             return min_max_df
 
         task_order_list.reverse()
         task_order_dict = {task: task_order_list.index(task) for task in task_order_list}
         min_max_df = get_min_max_df(new_df)
-
-
         fig, ax = plt.subplots()
-        tmp_df = list(min_max_df.loc[min_max_df['task']=='co-reference']['expected layer'])
-        for i,task in enumerate(min_max_df['task'].unique()):
+        tmp_df = list(min_max_df.loc[min_max_df['task'] == 'co-reference']['expected layer'])
+        for i, task in enumerate(min_max_df['task'].unique()):
             if 'non-terminals' in task:
                 updated_task = 'non-\nterminals'
             else:
                 updated_task = task
-            tmp_df = list(min_max_df.loc[min_max_df['task']==task]['expected layer'])
+            tmp_df = list(min_max_df.loc[min_max_df['task'] == task]['expected layer'])
             start = tmp_df[0]
             diff = tmp_df[1] - tmp_df[0]
-            ax.broken_barh([(start, diff)], (task_order_dict[task]*1.2, 1), facecolors=custom_palette[i])
-            ax.text(x=start + diff/2,
-                    y=task_order_dict[task]*1.2 + 0.5,
+            ax.broken_barh([(start, diff)], (task_order_dict[task] * 1.2, 1), facecolors=custom_palette[i])
+            ax.text(x=start + diff / 2,
+                    y=task_order_dict[task] * 1.2 + 0.5,
                     s=updated_task,
                     ha='center',
                     va='center',
@@ -82,8 +85,9 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
                     size='21',
                     )
         plt.xticks(np.arange(0, 6, step=0.3))
-        ax.set_xlim(0.3, 4.8)
-        ax.set_xlabel('excpected layer')
+        ax.set_xlim(0.3, 4.58)
+        ax.set_ylim(-0.05, 8.25)
+        ax.set_xlabel('expected layer')
         ax.get_yaxis().set_visible(False)
         ax.grid(True)
         #plt.title("Expected Layer Ranges")
@@ -199,21 +203,20 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
 
     total_df = get_total_df()
     relevant_tasks = get_relevant_task()
-    total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (total_df['tasks'] == relevant_tasks[2])]
+    total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (
+                total_df['tasks'] == relevant_tasks[2])]
     total_df = update_names(relevant_tasks, total_df)
-    total_df=  update_neg_values(total_df, relevant_tasks)
+    total_df = update_neg_values(total_df, relevant_tasks)
     total_df['result'] = pd.to_numeric(total_df['result'])
     total_df = total_df.sort_values(by=['value'], ascending=False)
     total_df = total_df.rename({"result": "Difference in Expected Layers"}, axis='columns')
-    # total_df['result'] = pd.DataFrame.abs(pd.to_numeric(total_df['result']))
-    # total_df.index = range(total_df.shape[0])
-    # total_df.at[0, 'result'] = str(-1 * float(total_df.at[0, 'result']))
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 20,
-          'axes.titlesize': 25, 'xtick.labelsize': 20, 'ytick.labelsize': 20}
+    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 24,
+          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30}
     sns.set(rc=rc)
     lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="value", palette="colorblind")
+    plt.gca().legend().set_title('')
 
 def plot_diffs_max_min(diffs_max_min):
     import math
@@ -266,16 +269,19 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
     new_df = new_df.loc[(new_df['task'] == simple_task) | (new_df['task'] == complex_task)]
     new_df = new_df.append({'task': get_special_name(complex_task, specific_span_complex), 'spans': '',
                             'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
-    new_df = new_df.append({'task': get_special_name(simple_task, specific_span_simple), 'spans': '', 'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
+    new_df = new_df.append({'task': get_special_name(simple_task, specific_span_simple), 'spans': '',
+                            'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
     # new_df = new_df.append({'task': 'co-reference (span: 0-2)', 'spans': '', 'Expected Layer': span_dict[complex_task]['0-2']}, ignore_index=True)
     # new_df = new_df.append({'task': 'NER (span: 9+)', 'spans': '', 'Expected Layer': span_dict[simple_task]['9+']}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 16,
-          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25}
+    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 23,
+          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30}
     sns.set(rc=rc)
-    sns.barplot(x="spans", y='Expected Layer', data=new_df, hue="task",
-                palette="colorblind", )
-    xlabels = tuple(pd.Series.unique(new_df['spans']))
-    plt.xticks(np.arange(len(xlabels)) - 0.2, xlabels, rotation=0, fontsize="18.5", va="center")
+    ax = sns.barplot(x="spans", y='Expected Layer', data=new_df, hue="task",
+                     palette="colorblind", )
+    plt.gca().legend().set_title('')
+    trans = mtrans.Affine2D().translate(60, 0)
+    for t in ax.get_xticklabels():
+        t.set_transform(t.get_transform() - trans)
 
