@@ -1,7 +1,7 @@
 import seaborn as sns
 from utils import *
 
-def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphToo=True):
+def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max , barGraphToo=True, isSpan=True):
 
     def relevant_sub_df(span_exp_layer, task):
         span_exp_layer_df = pd.DataFrame(span_exp_layer)
@@ -11,9 +11,16 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
         sub_df = sub_df.rename(columns={task: y_label})
         return sub_df
 
+    def reorder_df(df): #needed to move the "leftovers" to the end
+        m = df.index.str.find('-') != -1 # check in what line the index is of the structure "NUM - NUM"
+        df = df[m].append(df[~m]).reset_index(drop=True)
+        df.index = list(span_exp_layer['SPR'].keys()) #choosing the "SPR" at random - just need the original spans order
+        return df
+
     def get_new_df(span_exp_layer):
         new_df = pd.DataFrame(columns=[x_label, y_label, 'task'])
         span_exp_layer_df = pd.DataFrame(span_exp_layer)
+        span_exp_layer_df = reorder_df(span_exp_layer_df) if isSpan else span_exp_layer_df
         for task in span_exp_layer_df.columns:
             new_df = new_df.append(relevant_sub_df(span_exp_layer_df, task))
         return new_df
@@ -41,7 +48,7 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
                  style="task", palette=sns.set_palette(custom_palette), dashes=False,
                  markers=["o", "<", ">", "*", "d", "X" , "s"], legend="brief", )
     axes = lnp.axes
-    axes.set_xlim(-0.1, xlim + 0.1)
+    axes.set_xlim(xlim_min - 0.1, xlim_max + 0.1)
 
     if barGraphToo:
         def get_min_max_df(new_df):
@@ -75,7 +82,7 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim , barGraphTo
                     size='21',
                     )
         plt.xticks(np.arange(0, 6, step=0.3))
-        ax.set_xlim(1.6, 5.3)
+        ax.set_xlim(0.3, 4.8)
         ax.set_xlabel('excpected layer')
         ax.get_yaxis().set_visible(False)
         ax.grid(True)
@@ -130,7 +137,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
         cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'TCE'] if noTCE else cleaned_df
         cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'NDE'] if noNDE else cleaned_df
         cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'NIE'] if noNIE else cleaned_df
-        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'Difference in Expected Layer'] if noExpLayerDiff else cleaned_df
+        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'unmediated'] if noExpLayerDiff else cleaned_df
         return cleaned_df
 
 
@@ -138,7 +145,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
         TCE_df = get_relevant_df(TCE, 'TCE')
         NDE_df = get_relevant_df(NDE, 'NDE')
         NIE_df = get_relevant_df(NIE, 'NIE')
-        exp_layer_diff_df = get_relevant_df(exp_layer_diff, 'Difference in Expected Layer')
+        exp_layer_diff_df = get_relevant_df(exp_layer_diff, 'unmediated')
         total_df = pd.concat([TCE_df, NDE_df, NIE_df, exp_layer_diff_df])
         total_df = clean_df(total_df)
         return total_df
@@ -146,7 +153,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     def get_relevant_task():
         incr_tasks = {k: specific_tasks[k]['change(%)'] for k in specific_tasks.keys() if specific_tasks[k]['incr/decr'] == 'increase' and specific_tasks[k]['change difficulty balance'] == False}
         dec_tasks = {k: specific_tasks[k]['change(%)'] for k in specific_tasks.keys() if specific_tasks[k]['incr/decr'] == 'decrease' and specific_tasks[k]['change difficulty balance'] == False}
-        change_diff_bal_tasks = {k: specific_tasks[k]['change(%)'] for k in specific_tasks.keys() if specific_tasks[k]['change difficulty balance'] == True}
+        change_diff_bal_tasks = {k: specific_tasks[k]['change(abs val)'] for k in specific_tasks.keys() if specific_tasks[k]['change difficulty balance'] == True}
         max_incr_task = max(incr_tasks, key=incr_tasks.get)
         max_dec_task = max(dec_tasks, key=dec_tasks.get)
 
@@ -169,9 +176,9 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
             res = total_df.loc[total_df['tasks'] == old_name]['result']
             c = 1
             if (float(res.values[0]) < 0 and float(res.values[1]) < 0):
-                new_name = 'E(' + tasks[0] + ')-E(' + tasks[1] + ')\n(for NDE - \n' + tasks[0] + ' span distribution)'
+                new_name = tasks[0] + ' - ' + tasks[1]
             else:
-                new_name = 'E(' + tasks[1] + ')-E(' + tasks[0] + ')\n(for NDE - \n' + tasks[0] + ' span distribution)'
+                new_name = tasks[1] + ' - ' + tasks[0]
             total_df = total_df.replace(old_name, new_name)
         return total_df
 
@@ -185,7 +192,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
         total_df.index = total_df.index + " " + total_df['value']
         for task_pair in pairs_to_update:
             nde_index = task_pair + " NDE"
-            exp_index = task_pair + " Difference in Expected Layer" if noTCE else task_pair + " TCE"
+            exp_index = task_pair + " unmediated" if noTCE else task_pair + " TCE"
             total_df.at[nde_index, 'result'] = str(-1 * float(total_df.at[nde_index, 'result']))
             total_df.at[exp_index, 'result'] = str(-1 * float(total_df.at[exp_index, 'result']))
         return total_df
@@ -194,8 +201,10 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     relevant_tasks = get_relevant_task()
     total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (total_df['tasks'] == relevant_tasks[2])]
     total_df = update_names(relevant_tasks, total_df)
-    total_df=  update_neg_values(total_df, relevant_tasks) #FIXME: resolve
+    total_df=  update_neg_values(total_df, relevant_tasks)
     total_df['result'] = pd.to_numeric(total_df['result'])
+    total_df = total_df.sort_values(by=['value'], ascending=False)
+    total_df = total_df.rename({"result": "Difference in Expected Layers"}, axis='columns')
     # total_df['result'] = pd.DataFrame.abs(pd.to_numeric(total_df['result']))
     # total_df.index = range(total_df.shape[0])
     # total_df.at[0, 'result'] = str(-1 * float(total_df.at[0, 'result']))
@@ -204,7 +213,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 20,
           'axes.titlesize': 25, 'xtick.labelsize': 20, 'ytick.labelsize': 20}
     sns.set(rc=rc)
-    lnp = sns.barplot(x='tasks', y='result', data=total_df, hue="value", palette="colorblind")
+    lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="value", palette="colorblind")
 
 def plot_diffs_max_min(diffs_max_min):
     import math
@@ -233,7 +242,7 @@ def plot_diffs_max_min(diffs_max_min):
     sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
                 palette="colorblind", )
 
-def plot_sympson_paradox(span_dict, simple_task, complex_task):
+def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_simple, specific_span_complex):
     def relevant_sub_df(df, task):
         span_df = pd.DataFrame(span_dict)
         span_df['spans'] = span_df.index
@@ -249,10 +258,17 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task):
         for task in span_df.columns:
             new_df = new_df.append(relevant_sub_df(span_df, task))
         return new_df
+
+    def get_special_name(task, span):
+        return task + ' (span: ' + span + ')'
+
     new_df = get_new_df(span_dict)
     new_df = new_df.loc[(new_df['task'] == simple_task) | (new_df['task'] == complex_task)]
-    new_df = new_df.append({'task': 'co-reference (span: 0-2)', 'spans': '', 'Expected Layer': span_dict[complex_task]['0-2']}, ignore_index=True)
-    new_df = new_df.append({'task': 'NER (span: 9+)', 'spans': '', 'Expected Layer': span_dict[simple_task]['9+']}, ignore_index=True)
+    new_df = new_df.append({'task': get_special_name(complex_task, specific_span_complex), 'spans': '',
+                            'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
+    new_df = new_df.append({'task': get_special_name(simple_task, specific_span_simple), 'spans': '', 'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
+    # new_df = new_df.append({'task': 'co-reference (span: 0-2)', 'spans': '', 'Expected Layer': span_dict[complex_task]['0-2']}, ignore_index=True)
+    # new_df = new_df.append({'task': 'NER (span: 9+)', 'spans': '', 'Expected Layer': span_dict[simple_task]['9+']}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
     rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 16,
