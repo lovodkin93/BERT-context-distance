@@ -31,10 +31,11 @@ MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_
 BERT_LAYERS=12
 MIN_EXAMPLES_CNT = 700
 MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
-MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.004
+MIN_EXAMPLES_CNT_REMAINING = 2000 #MIN_EXAMPLES_CNT_percent_LEFTOVERS = 0.004
 CASUAL_EFFECT_SPAN_SIZE = 3
 
 ID_COLS = ['run', 'task', 'split']
+ALL_SPANS = False
 
 def softmax(x, axis=None):
     return np.exp(x - logsumexp(x, axis=axis, keepdims=True))
@@ -74,7 +75,7 @@ def calc_expected_layer(df):
         var_layer = (numerator_X_2 / denominator) - (exp_layer ** 2)  # varX = EX^2 - (EX)^2
     return exp_layer, first_neg_delta, var_layer, best_num_layer
 
-def TCE_helper(df, max_threshold_distance, allSpans=False, span=TWO_SPANS_SPAN):
+def TCE_helper(df, max_threshold_distance, allSpans=ALL_SPANS, span=TWO_SPANS_SPAN):
     # span = types of span: SPAN1_LEN, SPAN1_SPAN2_LEN, SPAN1_SPAN2_DIST
     # returns the expected layer for each spans of coref_span and their probability
     exp_layer_dict = dict()
@@ -94,7 +95,7 @@ def TCE_helper(df, max_threshold_distance, allSpans=False, span=TWO_SPANS_SPAN):
     num_examples_dict[f'{max_threshold_distance}+'] = 0 if len(curr_df) == 0 else curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0]
     if allSpans: # if include all spans, including w/ small dist
         exp_layer_dict[f'{max_threshold_distance}+'], _, _, _ = calc_expected_layer(curr_df)
-    elif num_examples_dict[f'{max_threshold_distance}+'] / total_example_num > MIN_EXAMPLES_CNT_percent_LEFTOVERS: #(len(curr_df) != 0) and (curr_df.loc[curr_df['layer_num'] == '0']['total_count'].values[0] > MIN_EXAMPLES_CNT):
+    elif  num_examples_dict[f'{max_threshold_distance}+'] > MIN_EXAMPLES_CNT_REMAINING: #num_examples_dict[f'{max_threshold_distance}+'] / total_example_num > MIN_EXAMPLES_CNT_percent_LEFTOVERS:
        exp_layer_dict[f'{max_threshold_distance}+'], _, _, _ = calc_expected_layer(curr_df)
     span_probability = {k : num_examples_dict[k]/total_example_num for k in num_examples_dict.keys()}
     return exp_layer_dict, span_probability
@@ -123,7 +124,7 @@ def NIE_calculate(df1,df2,max_thr_distance1,max_thr_distance2,allSpans, span1,sp
     diff = {k: (span_prob_dict2[k] - span_prob_dict1[k]) for k in exp_layer_dict2.keys() if k in exp_layer_dict1.keys()}
     return sum([exp_layer_dict1[k] * diff[k] for k in diff.keys()])
 
-def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, span1=TWO_SPANS_SPAN, span2=TWO_SPANS_SPAN):
+def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=ALL_SPANS, span1=TWO_SPANS_SPAN, span2=TWO_SPANS_SPAN):
     # span1/2 = that we check the span_distance parameter, span1_length or span1_span2_length for df1,df2 respectively
     # returns TCE, CDE. NDE and NIE
     TCE = TCE_calculate(df1, df2, max_thr_distance1, max_thr_distance2, allSpans=True, span1=span1, span2=span2)
@@ -133,14 +134,14 @@ def all_effects(df1,df2,max_thr_distance1,max_thr_distance2, allSpans=False, spa
     return TCE, CDE, NDE, NIE
 
 def min_span_less_one_percent(df,max_threshold_distance,span):
-    _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=True, span=span)
+    _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=ALL_SPANS, span=span)
     span_probability_df = pd.DataFrame(list(span_probability_dic.values()))
     # first idx when the span prob < 1% and mul by the casual effect span size to normalize (unless there's no such and them return the maximinum span possible
     if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent)[0]:
         return (np.argmax([span_probability_df<=MIN_EXAMPLES_CNT_percent])) * CASUAL_EFFECT_SPAN_SIZE
     return (len(span_probability_df) - 1) * CASUAL_EFFECT_SPAN_SIZE
 
-def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=False, span1=TWO_SPANS_SPAN ,span2=TWO_SPANS_SPAN):
+def get_exp_prob(df1,df2,max_threshold_distance1,max_threshold_distance2, allSpans=ALL_SPANS, span1=TWO_SPANS_SPAN ,span2=TWO_SPANS_SPAN):
     max_threshold_distance = min(min_span_less_one_percent(df1,max_threshold_distance1,span1), min_span_less_one_percent(df2,max_threshold_distance2,span2))
     exp_layer_dict1, span_probability1 = TCE_helper(df1, max_threshold_distance, allSpans=allSpans,span=span1)
     exp_layer_dict2, span_probability2 = TCE_helper(df2, max_threshold_distance, allSpans=allSpans,span=span2)

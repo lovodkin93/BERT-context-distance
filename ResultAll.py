@@ -15,7 +15,7 @@ class Result:
         df = data_class.data_df.loc[ (data_class.data_df['label'] == '_micro_avg_') & (data_class.data_df['split'] == SPLIT)]
         self.expected_layer, self.first_neg_delta, self.var_layer, self.best_num_layer = calc_expected_layer(df)
         self.expected_layer_dict, self.first_neg_delta_dict, self.var_layer_dict, self.best_layer_dict, self.num_examples_dict = self.calculate_thr_dict_values(data_class.data_df, max_thr, span=context_distance, at_most_least=at_most_least)
-        self.span_exp_layer, self.span_prob =  TCE_helper(data_class.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=True, span=context_distance) #FIXME: update functions calling TCE_helper so no double calling (in utils)
+        self.span_exp_layer, self.span_prob =  TCE_helper(data_class.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=ALL_SPANS, span=context_distance) #FIXME: update functions calling TCE_helper so no double calling (in utils)
         self.TCE, self.CDE, self.NDE, self.NIE = self.calculate_TCE_CDE_NIE_NDE(data_class, context_distance, data_class.name, max_thr, dataAll_class)
 
     def calculate_thr_dict_values(self, df, max_threshold_distance, span=TWO_SPANS_SPAN, at_most_least=AT_MOST):
@@ -39,7 +39,7 @@ class Result:
             if task.name != task_data.name:
                 a = task_data.name + ' to ' + task.name
                 TCE[a], CDE[a], NDE[a], NIE[a] = all_effects(task_data.data_df, task.data_df, max_thr, task.max_thr,
-                                                             allSpans=False, span1=context_distance,
+                                                             allSpans=ALL_SPANS, span1=context_distance,
                                                              span2=task.context_distance)
         return TCE, CDE, NDE, NIE
 
@@ -103,7 +103,7 @@ class ResultAll:
     def get_all_span_exp_layer_prob(self):
         span_exp_layer, span_prob = dict(), dict()
         for task in vars(self.dataAll_class).values():
-            span_exp_layer[task.name], span_prob[task.name] = TCE_helper(task.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=True, span=task.context_distance)
+            span_exp_layer[task.name], span_prob[task.name] = TCE_helper(task.data_df, MAX_ALL_THRESHOLD_DISTANCE, allSpans=ALL_SPANS, span=task.context_distance)
         return span_exp_layer, span_prob
 
     def get_all_thr_dict_values(self):

@@ -17,9 +17,6 @@ def main(args):
     exp_layer_dict, first_neg_delta_dict, var_layer_dict, best_layer_dict, num_examples_dict = resultAll.get_all_thr_dict_values()
     plot_span_expected_layer(exp_layer_dict, "threshold", "expected layer", xlim_min=1, xlim_max=MAX_SPR_THRESHOLD_DISTANCE, ylim_min=-0.1, ylim_max=4.3,  barGraphToo=False, isSpan=False)
 
-    plot_span_expected_layer(num_examples_dict, "threshold", "number of examples", xlim_min=1, xlim_max=MAX_SPR_THRESHOLD_DISTANCE, ylim_min=-0.1, ylim_max=4.3,  barGraphToo=False, isSpan=False)
-
-
     #getting the same value for the expected layer as in the article (3.62 and almost 4.29 and 2.713 for the NER task and 1.936 for nonterminals)
     exp_layer_all = resultAll.get_all_expected_layers()
 ################################# EXP LAYER PER SPAN & SPAN DISTRIBUTION ###############################################
@@ -29,13 +26,13 @@ def main(args):
 ################################## imposing min_max Simpson Paradox ####################################################
     diffs_max_min = resultAll.impose_max_min()
     plot_diffs_max_min(diffs_max_min)
-    plot_sympson_paradox(span_exp_layer, 'dependencies', 'NER','9+', '3-5', ylim_max=3.8)
-    plot_sympson_paradox(span_exp_layer, 'non-terminals', 'SRL', '9+', '0-2', ylim_max=3.05)
+    plot_sympson_paradox(span_exp_layer, 'DEP.', 'NER','9+', '3-5', ylim_max=3.8)
+    plot_sympson_paradox(span_exp_layer, 'NON-TERM.', 'SRL', '9+', '0-2', ylim_max=3.05)
 ##################################################### ALL COMBOS #######################################################
     TCE_all, CDE_all, NDE_all, NIE_all = resultAll.get_all_TCE_CDE_NIE_NDE()
     exp_layer_diff_all = resultAll.get_all_expected_layer_diff()
 
-    biggest_TCE_NDE_difference = resultAll.get_biggest_exp_layer_diff_NDE_diff(isTCE=True)
+    #biggest_TCE_NDE_difference = resultAll.get_biggest_exp_layer_diff_NDE_diff(isTCE=True)
     biggest_exp_layer_NDE_difference = resultAll.get_biggest_exp_layer_diff_NDE_diff(isTCE=False)
 
     #plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=biggest_TCE_NDE_difference, noTCE=False, noNDE=False, noNIE=True, noExpLayerDiff=True)

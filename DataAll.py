@@ -137,10 +137,10 @@ class Data:
 class DataAll:
 
     def __init__(self):
-        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'co-reference', context_distance=TWO_SPANS_SPAN)
+        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'CO-REF.', context_distance=TWO_SPANS_SPAN)
         self.spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR', context_distance=TWO_SPANS_SPAN)
         self.srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL', context_distance=TWO_SPANS_SPAN)
         self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER', context_distance=SPAN1_LEN)
-        self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'non-terminals', context_distance=SPAN1_LEN)
-        self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'dependencies', context_distance=TWO_SPANS_SPAN)
-        self.relations = Data("./scores/scores_rel.tsv", MAX_REL_THRESHOLD_DISTANCE, 'relations', context_distance=TWO_SPANS_SPAN)
+        self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'NON-TERM.', context_distance=SPAN1_LEN)
+        self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'DEP.', context_distance=TWO_SPANS_SPAN)
+        self.relations = Data("./scores/scores_rel.tsv", MAX_REL_THRESHOLD_DISTANCE, 'REL.', context_distance=TWO_SPANS_SPAN)

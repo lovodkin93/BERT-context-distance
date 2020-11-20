@@ -66,10 +66,10 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
         task_order_dict = {task: task_order_list.index(task) for task in task_order_list}
         min_max_df = get_min_max_df(new_df)
         fig, ax = plt.subplots()
-        tmp_df = list(min_max_df.loc[min_max_df['task'] == 'co-reference']['expected layer'])
+        tmp_df = list(min_max_df.loc[min_max_df['task'] == 'CO-REF.']['expected layer'])
         for i, task in enumerate(min_max_df['task'].unique()):
-            if 'non-terminals' in task:
-                updated_task = 'non-\nterminals'
+            if 'NON-TERM.' in task:
+                updated_task = 'NON-\nTERM.'
             else:
                 updated_task = task
             tmp_df = list(min_max_df.loc[min_max_df['task'] == task]['expected layer'])
@@ -82,9 +82,9 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
                     ha='center',
                     va='center',
                     color='black',
-                    size='21',
+                    size='17',
                     )
-        plt.xticks(np.arange(0, 6, step=0.3))
+        plt.xticks(np.arange(0, 6, step=0.5))
         ax.set_xlim(0.3, 4.58)
         ax.set_ylim(-0.05, 8.25)
         ax.set_xlabel('expected layer')
@@ -132,16 +132,16 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
             axis=1
         )
         df['tasks'] = df.index
-        df['value'] = name
-        df = df[['value', 'tasks', 'result']]
+        df['values'] = name
+        df = df[['values', 'tasks', 'result']]
         return df
 
     def clean_df(total_df):
         cleaned_df = total_df.loc[total_df['tasks'].isin(specific_tasks)]
-        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'TCE'] if noTCE else cleaned_df
-        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'NDE'] if noNDE else cleaned_df
-        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'NIE'] if noNIE else cleaned_df
-        cleaned_df = cleaned_df.loc[cleaned_df['value'] != 'unmediated'] if noExpLayerDiff else cleaned_df
+        cleaned_df = cleaned_df.loc[cleaned_df['values'] != 'TCE'] if noTCE else cleaned_df
+        cleaned_df = cleaned_df.loc[cleaned_df['values'] != 'NDE'] if noNDE else cleaned_df
+        cleaned_df = cleaned_df.loc[cleaned_df['values'] != 'NIE'] if noNIE else cleaned_df
+        cleaned_df = cleaned_df.loc[cleaned_df['values'] != 'unmediated'] if noExpLayerDiff else cleaned_df
         return cleaned_df
 
 
@@ -193,7 +193,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
             results = total_df.loc[total_df.index == task_pair]['result']
             if float(results.values[0]) < 0 and float(results.values[1]) < 0:
                 pairs_to_update.append(task_pair)
-        total_df.index = total_df.index + " " + total_df['value']
+        total_df.index = total_df.index + " " + total_df['values']
         for task_pair in pairs_to_update:
             nde_index = task_pair + " NDE"
             exp_index = task_pair + " unmediated" if noTCE else task_pair + " TCE"
@@ -208,14 +208,14 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     total_df = update_names(relevant_tasks, total_df)
     total_df = update_neg_values(total_df, relevant_tasks)
     total_df['result'] = pd.to_numeric(total_df['result'])
-    total_df = total_df.sort_values(by=['value'], ascending=False)
+    total_df = total_df.sort_values(by=['values'], ascending=False)
     total_df = total_df.rename({"result": "Difference in Expected Layers"}, axis='columns')
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
     rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 24,
           'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30}
     sns.set(rc=rc)
-    lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="value", palette="colorblind")
+    lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="values", palette="colorblind")
     plt.gca().legend().set_title('')
 
 def plot_diffs_max_min(diffs_max_min):
@@ -271,8 +271,6 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
                             'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
     new_df = new_df.append({'task': get_special_name(simple_task, specific_span_simple), 'spans': '',
                             'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
-    # new_df = new_df.append({'task': 'co-reference (span: 0-2)', 'spans': '', 'Expected Layer': span_dict[complex_task]['0-2']}, ignore_index=True)
-    # new_df = new_df.append({'task': 'NER (span: 9+)', 'spans': '', 'Expected Layer': span_dict[simple_task]['9+']}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
     rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 23,
