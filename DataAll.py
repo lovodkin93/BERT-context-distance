@@ -137,7 +137,7 @@ class Data:
 class DataAll:
 
     def __init__(self):
-        self.coreference = Data("./scores/scores_old_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'CO-REF.', context_distance=TWO_SPANS_SPAN)
+        self.coreference = Data("./scores/scores_coref.tsv", MAX_COREF_OLD_THRESHOLD_DISTANCE, 'CO-REF.', context_distance=TWO_SPANS_SPAN)
         self.spr = Data("./scores/scores_spr1.tsv", MAX_SPR_THRESHOLD_DISTANCE, 'SPR', context_distance=TWO_SPANS_SPAN)
         self.srl = Data("./scores/scores_srl.tsv", MAX_SRL_THRESHOLD_DISTANCE, 'SRL', context_distance=TWO_SPANS_SPAN)
         self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER', context_distance=SPAN1_LEN)

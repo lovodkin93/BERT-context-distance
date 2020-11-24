@@ -1,7 +1,7 @@
 import seaborn as sns
 from utils import *
 
-def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max ,ylim_min, ylim_max , barGraphToo=True, isSpan=True):
+def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max ,ylim_min, ylim_max, axes_title_size, xticks_size, yticks_size, legend_size , barGraphToo=True, isSpan=True):
 
     def relevant_sub_df(span_exp_layer, task):
         span_exp_layer_df = pd.DataFrame(span_exp_layer)
@@ -41,9 +41,12 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
     custom_palette = sns.color_palette("colorblind", 8)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 21.5,
-          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30, "lines.linewidth": 3,
-          "lines.markersize": 8}
+    rc = {'font.size': 25, 'axes.labelsize': axes_title_size, 'legend.fontsize': legend_size,
+          'axes.titlesize': 33, 'xtick.labelsize': xticks_size, 'ytick.labelsize': yticks_size, "lines.linewidth": 2,
+          "lines.markersize": 3}
+    # params = {'text.latex.preamble' : [r'\usepackage{amsmath, amssymb}'], }
+    # plt.rcParams.update(params)
+
     sns.set(rc=rc)
     lnp = sns.lineplot(x=x_label, y=y_label, data=new_df, hue="task",
                        style="task", palette=sns.set_palette(custom_palette), dashes=False,
@@ -52,6 +55,7 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
     plt.gca().legend().set_title('')
     axes.set_xlim(xlim_min - 0.1, xlim_max + 0.1)
     axes.set_ylim(ylim_min, ylim_max)
+    plt.savefig('./figures/' + y_label + '_' + x_label + '.png', bbox_inches='tight', dpi=300)
 
     if barGraphToo:
         def get_min_max_df(new_df):
@@ -82,15 +86,18 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
                     ha='center',
                     va='center',
                     color='black',
-                    size='17',
+                    size='3.5',
                     )
-        plt.xticks(np.arange(0, 6, step=0.5))
-        ax.set_xlim(0.3, 4.58)
-        ax.set_ylim(-0.05, 8.25)
-        ax.set_xlabel('expected layer')
+        plt.xticks(np.arange(0, 6, step=0.5), fontsize=5)
+        ax.set_xlim(0.22, 4.65)
+        ax.set_ylim(-0.15, 8.38)
+        ax.set_xlabel('$\mathbb{E}_{layer}$', fontsize=7)
         ax.get_yaxis().set_visible(False)
         ax.grid(True)
-        #plt.title("Expected Layer Ranges")
+        for t in ax.get_xticklabels():
+            t.set_transform(t.get_transform() + mtrans.Affine2D().translate(0, 30))
+        plt.savefig('./figures/bars.png', bbox_inches='tight', dpi=300)
+        # plt.title("Expected Layer Ranges")
 
 def plot_CDE(cde):
 
@@ -123,7 +130,7 @@ def plot_all_CDE(CDE_all):
         plot_CDE(task_CDE)
 
 
-def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=False, noNDE=False, noNIE=False, noExpLayerDiff=False):
+def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=False, noNDE=False, noNIE=False, noExpLayerDiff=False, fig_name = 'NDE_vs_Umediated'):
 
     def get_relevant_df(dict, name):
         df = pd.DataFrame(dict)
@@ -204,7 +211,7 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     total_df = get_total_df()
     relevant_tasks = get_relevant_task()
     total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (
-                total_df['tasks'] == relevant_tasks[2])]
+            total_df['tasks'] == relevant_tasks[2])]
     total_df = update_names(relevant_tasks, total_df)
     total_df = update_neg_values(total_df, relevant_tasks)
     total_df['result'] = pd.to_numeric(total_df['result'])
@@ -212,11 +219,14 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
     total_df = total_df.rename({"result": "Difference in Expected Layers"}, axis='columns')
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 24,
-          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30}
+    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 12,
+          'axes.titlesize': 33, 'xtick.labelsize': 13, 'ytick.labelsize': 12}
     sns.set(rc=rc)
     lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="values", palette="colorblind")
+    plt.ylabel('Difference in $\mathbb{E}_{layer}$')
     plt.gca().legend().set_title('')
+    plt.xlabel('Tasks')
+    plt.savefig('./figures/ ' + fig_name + '.png', bbox_inches='tight', dpi=300)
 
 def plot_diffs_max_min(diffs_max_min):
     import math
@@ -239,17 +249,22 @@ def plot_diffs_max_min(diffs_max_min):
     new_df = get_new_df(diffs_max_min)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 25, 'legend.fontsize': 14,
-          'axes.titlesize': 25, 'xtick.labelsize': 25, 'ytick.labelsize': 25}
+    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 5,
+          'axes.titlesize': 33, 'xtick.labelsize': 13, 'ytick.labelsize': 13}
     sns.set(rc=rc)
-    sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
-                palette="colorblind", )
+    lnp = sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
+                      palette="hot", )
+    axes = lnp.axes
+    axes.set_xlim(-0.5, 2.3)
+    axes.set_ylim(-4.4, 2.7)
+    plt.gca().legend().set_title('')
+    plt.savefig('./figures/max_min.png', bbox_inches='tight', dpi=300)
 
 def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_simple, specific_span_complex, ylim_max):
     def relevant_sub_df(df, task):
         span_df = pd.DataFrame(span_dict)
-        span_df['spans'] = span_df.index
-        sub_df = pd.DataFrame(span_df[['spans', task]])
+        span_df['CL Ranges'] = span_df.index
+        sub_df = pd.DataFrame(span_df[['CL Ranges', task]])
         sub_df['task'] = task
         sub_df = sub_df.rename(columns={task: 'Expected Layer'})
         sub_df = sub_df.loc[sub_df['Expected Layer'] == sub_df['Expected Layer']]
@@ -263,25 +278,34 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
         return new_df
 
     def get_special_name(task, span):
-        return task + ' (span: ' + span + ')'
+        return task + ' (CL$\in$' + span + ')'
 
     new_df = get_new_df(span_dict)
     new_df = new_df.loc[(new_df['task'] == simple_task) | (new_df['task'] == complex_task)]
-    new_df = new_df.append({'task': get_special_name(complex_task, specific_span_complex), 'spans': '',
-                            'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
-    new_df = new_df.append({'task': get_special_name(simple_task, specific_span_simple), 'spans': '',
-                            'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
+    new_df = new_df.append(
+        {'task': get_special_name(complex_task, specific_span_complex), 'CL Ranges': 'CL\n distribution',
+         'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
+    new_df = new_df.append(
+        {'task': get_special_name(simple_task, specific_span_simple), 'CL Ranges': 'CL\n distribution',
+         'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 25, 'axes.labelsize': 33, 'legend.fontsize': 23,
-          'axes.titlesize': 33, 'xtick.labelsize': 30, 'ytick.labelsize': 30}
+    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 9.5,
+          'axes.titlesize': 33, 'xtick.labelsize': 10, 'ytick.labelsize': 10}
     sns.set(rc=rc)
-    ax = sns.barplot(x="spans", y='Expected Layer', data=new_df, hue="task",
+    ax = sns.barplot(x='CL Ranges', y='Expected Layer', data=new_df, hue="task",
                      palette="colorblind", )
     plt.gca().legend().set_title('')
-    trans = mtrans.Affine2D().translate(60, 0)
+    trans = mtrans.Affine2D().translate(50, 0)
     for t in ax.get_xticklabels():
-        t.set_transform(t.get_transform() - trans)
+        if 'CL' in t._text:
+            # t.set_rotation(20)
+            t.set_transform(t.get_transform() + mtrans.Affine2D().translate(60, 0))
+        else:
+            t.set_transform(t.get_transform() - trans)
+    plt.ylabel('$\mathbb{E}_{layer}$')
     ax.set_ylim(0, ylim_max)
+    plt.savefig('./figures/simpson_' + simple_task + '_' + complex_task + '.png', bbox_inches='tight', dpi=300)
+
 
 
