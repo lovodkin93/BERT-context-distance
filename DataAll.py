@@ -143,4 +143,4 @@ class DataAll:
         self.ner = Data("./scores/scores_ner.tsv", MAX_NER_THRESHOLD_DISTANCE, 'NER', context_distance=SPAN1_LEN)
         self.nonterminals = Data("./scores/scores_nonterminal.tsv", MAX_NONTERMINAL_THRESHOLD_DISTANCE, 'NON-TERM.', context_distance=SPAN1_LEN)
         self.dependencies = Data("./scores/scores_dep.tsv", MAX_DEP_THRESHOLD_DISTANCE, 'DEP.', context_distance=TWO_SPANS_SPAN)
-        self.relations = Data("./scores/scores_rel.tsv", MAX_REL_THRESHOLD_DISTANCE, 'REL.', context_distance=TWO_SPANS_SPAN)
+        self.relations = Data("./scores/scores_rel.tsv", MAX_RC_THRESHOLD_DISTANCE, 'RC', context_distance=TWO_SPANS_SPAN)

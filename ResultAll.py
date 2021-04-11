@@ -71,7 +71,7 @@ class ResultAll:
         self.ner = Result(dataAll_class.ner, MAX_NER_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=SPAN1_LEN, dataAll_class=dataAll_class)
         self.srl = Result(dataAll_class.srl, MAX_SRL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
         self.coreference = Result(dataAll_class.coreference, MAX_COREF_OLD_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
-        self.relations = Result(dataAll_class.relations, MAX_REL_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
+        self.relations = Result(dataAll_class.relations, MAX_RC_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
         self.spr = Result(dataAll_class.spr, MAX_SPR_THRESHOLD_DISTANCE, at_most_least=at_most_least, context_distance=TWO_SPANS_SPAN, dataAll_class=dataAll_class)
 
     def get_all_expected_layers(self):
@@ -131,17 +131,48 @@ class ResultAll:
         largest_change = nlargest(10, change_dict, key=change_perc_dict.get)
         return {elem: change_dict[elem] for elem in largest_change}
 
+    def get_all_exp_layer_diff_NDE_diff(self, isTCE=False):
+        # isTCE is for the case when I eant to compare the TCE to the NDE and not the actual expected layer difference
+        def calc_change(exp_layer_diff, NDE):
+            increase_decrease = 'decrease' if abs(exp_layer_diff) > abs(NDE) else 'increase'
+            change_difficulty_balance = True if ((exp_layer_diff > 0 and NDE < 0) or (exp_layer_diff < 0 and NDE > 0)) else False
+            return {'incr/decr': increase_decrease, 'change(%)': abs((exp_layer_diff - NDE) / exp_layer_diff) * 100,
+                    'change(abs val)': abs(exp_layer_diff - NDE), 'change difficulty balance': change_difficulty_balance}
+
+        TCE_all, _, NDE_all, _ = self.get_all_TCE_CDE_NIE_NDE()
+        exp_layer_diff = TCE_all if isTCE else self.get_all_expected_layer_diff()
+        change_dict = {k: (calc_change(exp_layer_diff[ref_task][k], NDE_all[ref_task][k])) for ref_task in NDE_all.keys() for k
+                       in NDE_all[ref_task].keys()}
+        change_perc_dict = {k: change_dict[k]['change(%)'] for k in change_dict.keys()}
+        all_task_pairs = dict()
+        for task1 in list(exp_layer_diff.keys()):
+            for task2 in list(exp_layer_diff.keys()):
+                if task1 == task2:
+                    continue
+                one2two = task1 + ' to ' + task2
+                two2one = task2 + ' to ' + task1
+                curr_name = one2two if change_perc_dict[one2two] > change_perc_dict[two2one] else two2one
+                if curr_name == 'NER to CO-REF.':
+                    curr_name = 'CO-REF. to NER'
+                if curr_name not in all_task_pairs:
+                    all_task_pairs[curr_name] = change_dict[curr_name]
+        return all_task_pairs
+
     def impose_max_min(self):
         # returns diffs, a dict whose keys are of structure "k to j" where k and j are grammatical tasks, and the values are lists where each time we subtract k's expected layer from j's, when the first elem of the list j's exp layer is the max of all the spans and k's is the min and the second elem vice versa
         span_exp_layer, _ = self.get_all_span_exp_layer_prob()
         diffs = dict()
         for k in span_exp_layer.keys():
             for j in span_exp_layer.keys():
-                if k + ' minus ' + j not in diffs.keys() and j != k:
+                if k + ' - ' + j not in diffs.keys() and j != k:
                     k_vals = span_exp_layer[k].values()
                     j_vals = span_exp_layer[j].values()
-                    diffs[j + ' minus ' + k] = {'max minus min': max(j_vals) - min(k_vals),
-                                                'min minus max': min(j_vals) - max(k_vals)}
+                    if max(j_vals) - min(k_vals) < 0 and min(j_vals) - max(k_vals) < 0:
+                        diffs[k + ' - ' + j] = {'$max_{left}$ - $min_{right}$': max(k_vals) - min(j_vals),
+                                                    '$min_{left}$ - $max_{right}$': min(k_vals) - max(j_vals)}
+                    else:
+                        diffs[j + ' - ' + k] = {'$max_{left}$ - $min_{right}$': max(j_vals) - min(k_vals),
+                                                    '$min_{left}$ - $max_{right}$': min(j_vals) - max(k_vals)}
         return diffs
 
 

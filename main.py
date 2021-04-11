@@ -23,8 +23,8 @@ def main(args):
     exp_layer_all = resultAll.get_all_expected_layers()
 ################################# EXP LAYER PER SPAN & SPAN DISTRIBUTION ###############################################
     span_exp_layer, span_prob = resultAll.get_all_span_exp_layer_prob()
-    plot_span_expected_layer(span_exp_layer, "CL Ranges", "$\mathbb{E}_{layer}$", xlim_min=0, xlim_max=3, ylim_min=-1.3, ylim_max=4.7, axes_title_size=15, xticks_size=13, yticks_size=13, legend_size=8, barGraphToo=True)
-    plot_span_expected_layer(span_prob, "CL Ranges", "span probability", xlim_min=0, xlim_max=3, ylim_min=-0.01, ylim_max=0.87, axes_title_size = 15, xticks_size=13, yticks_size=13, legend_size=8, barGraphToo=False)
+    plot_span_expected_layer(span_exp_layer, "Context Length Ranges", "$\mathbb{E}_{layer}$", xlim_min=0, xlim_max=3, ylim_min=-1.3, ylim_max=4.7, axes_title_size=15, xticks_size=13, yticks_size=13, legend_size=8, barGraphToo=True, isPercent=False)
+    plot_span_expected_layer(span_prob, "Context Length Ranges", "span probability", xlim_min=0, xlim_max=3, ylim_min=-1, ylim_max=83, axes_title_size = 13, xticks_size=13, yticks_size=13, legend_size=8, barGraphToo=False, isPercent=True)
 ################################## imposing min_max Simpson Paradox ####################################################
     diffs_max_min = resultAll.impose_max_min()
     plot_diffs_max_min(diffs_max_min)
@@ -36,9 +36,12 @@ def main(args):
 
     #biggest_TCE_NDE_difference = resultAll.get_biggest_exp_layer_diff_NDE_diff(isTCE=True)
     biggest_exp_layer_NDE_difference = resultAll.get_biggest_exp_layer_diff_NDE_diff(isTCE=False)
+    all_exp_layer_NDE_difference = resultAll.get_all_exp_layer_diff_NDE_diff(isTCE=False)
 
     #plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=biggest_TCE_NDE_difference, noTCE=False, noNDE=False, noNIE=True, noExpLayerDiff=True)
-    plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=biggest_exp_layer_NDE_difference, noTCE=True, noNDE=False, noNIE=True, noExpLayerDiff=False,fig_name = 'NDE_vs_Umediated')
+    plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=biggest_exp_layer_NDE_difference, noTCE=True, noNDE=False, noNIE=True, noExpLayerDiff=False,fig_name = 'NDE_vs_Umediated', allData=False)
+    plot_TCE_NDE_NIE(TCE_all, NDE_all, NIE_all, exp_layer_diff_all, specific_tasks=all_exp_layer_NDE_difference, noTCE=True, noNDE=False, noNIE=True, noExpLayerDiff=False,fig_name = 'NDE_vs_Umediated all tasks', allData=True)
+
 
     #plt.show()
     # plot_all_CDE(CDE_all)

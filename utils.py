@@ -26,8 +26,8 @@ MAX_SRL_THRESHOLD_DISTANCE = 46 #22
 MAX_NER_THRESHOLD_DISTANCE = 9 #9
 MAX_NONTERMINAL_THRESHOLD_DISTANCE = 60 #55
 MAX_DEP_THRESHOLD_DISTANCE = 36 #30
-MAX_REL_THRESHOLD_DISTANCE = 20 # 9
-MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE, MAX_REL_THRESHOLD_DISTANCE)
+MAX_RC_THRESHOLD_DISTANCE = 20 # 9
+MAX_ALL_THRESHOLD_DISTANCE = min(MAX_COREF_OLD_THRESHOLD_DISTANCE,MAX_COREF_NEW_THRESHOLD_DISTANCE,MAX_SPR_THRESHOLD_DISTANCE, MAX_SRL_THRESHOLD_DISTANCE, MAX_NER_THRESHOLD_DISTANCE, MAX_NONTERMINAL_THRESHOLD_DISTANCE, MAX_DEP_THRESHOLD_DISTANCE, MAX_RC_THRESHOLD_DISTANCE)
 BERT_LAYERS=12
 MIN_EXAMPLES_CNT = 700
 MIN_EXAMPLES_CNT_percent = 0.01 # less then 1% of total samples - ignore
@@ -137,7 +137,7 @@ def min_span_less_one_percent(df,max_threshold_distance,span):
     _, span_probability_dic = TCE_helper(df, max_threshold_distance, allSpans=ALL_SPANS, span=span)
     span_probability_df = pd.DataFrame(list(span_probability_dic.values()))
     # first idx when the span prob < 1% and mul by the casual effect span size to normalize (unless there's no such and them return the maximinum span possible
-    if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent)[0]:
+    if np.any(span_probability_df <= MIN_EXAMPLES_CNT_percent):
         return (np.argmax([span_probability_df<=MIN_EXAMPLES_CNT_percent])) * CASUAL_EFFECT_SPAN_SIZE
     return (len(span_probability_df) - 1) * CASUAL_EFFECT_SPAN_SIZE
 

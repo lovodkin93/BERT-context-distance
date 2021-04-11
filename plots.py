@@ -1,7 +1,7 @@
 import seaborn as sns
 from utils import *
 
-def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max ,ylim_min, ylim_max, axes_title_size, xticks_size, yticks_size, legend_size , barGraphToo=True, isSpan=True):
+def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_max ,ylim_min, ylim_max, axes_title_size, xticks_size, yticks_size, legend_size , barGraphToo=True, isSpan=True, isPercent=False):
 
     def relevant_sub_df(span_exp_layer, task):
         span_exp_layer_df = pd.DataFrame(span_exp_layer)
@@ -38,6 +38,8 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
     task_order_list = get_task_order(new_df)
     task_order_list.reverse()
     new_df = new_df.set_index('task').loc[task_order_list].reset_index()
+    if isPercent:
+        new_df['span probability'] = new_df['span probability'] * 100
     custom_palette = sns.color_palette("colorblind", 8)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
@@ -53,6 +55,7 @@ def plot_span_expected_layer(span_exp_layer, x_label, y_label, xlim_min, xlim_ma
                        markers=["o", "<", ">", "*", "d", "X", "s"], legend="brief", )
     axes = lnp.axes
     plt.gca().legend().set_title('')
+    plt.ylabel('Span Distribution (%)')
     axes.set_xlim(xlim_min - 0.1, xlim_max + 0.1)
     axes.set_ylim(ylim_min, ylim_max)
     plt.savefig('./figures/' + y_label + '_' + x_label + '.png', bbox_inches='tight', dpi=300)
@@ -130,7 +133,7 @@ def plot_all_CDE(CDE_all):
         plot_CDE(task_CDE)
 
 
-def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=False, noNDE=False, noNIE=False, noExpLayerDiff=False, fig_name = 'NDE_vs_Umediated'):
+def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=False, noNDE=False, noNIE=False, noExpLayerDiff=False, fig_name = 'NDE_vs_Umediated', allData=False):
 
     def get_relevant_df(dict, name):
         df = pd.DataFrame(dict)
@@ -208,63 +211,128 @@ def plot_TCE_NDE_NIE(TCE, NDE, NIE, exp_layer_diff, specific_tasks=None, noTCE=F
             total_df.at[exp_index, 'result'] = str(-1 * float(total_df.at[exp_index, 'result']))
         return total_df
 
+    def get_ordered(total_df, task_sub_list):
+        change_task_sub_list_dict = {k: abs(float(total_df.loc[total_df['tasks'] == k].loc[total_df['values'] == 'unmediated']['Difference in Expected Layers']) -
+                                  float(total_df.loc[total_df['tasks'] == k].loc[total_df['values'] == 'NDE']['Difference in Expected Layers']))
+                           for k in task_sub_list}
+        ordered_task_sub_list = nlargest(len(task_sub_list), task_sub_list, key=change_task_sub_list_dict.get)
+        return ordered_task_sub_list
+
+    def order_tasks(total_df):
+        task_pair_list = list(set([elem for elem in total_df['tasks']]))
+        changed = []
+        dec = []
+        inc = []
+        for task_pair in task_pair_list:
+            tmp = total_df.loc[total_df['tasks'] == task_pair]
+            if float(tmp['Difference in Expected Layers'][0]) * float(tmp['Difference in Expected Layers'][1]) < 0:
+                changed.append(task_pair)
+            elif float(tmp['Difference in Expected Layers'][0]) < float(tmp['Difference in Expected Layers'][1]):
+                inc.append(task_pair)
+            else:
+                dec.append(task_pair)
+        ordered_changed_list = get_ordered(total_df, changed)
+        ordered_dec_list = get_ordered(total_df, dec)
+        ordered_inc_list = get_ordered(total_df, inc)
+        ordered_tasks_list = ordered_changed_list + ordered_dec_list + ordered_inc_list
+        return ordered_tasks_list
+
+
+
     total_df = get_total_df()
-    relevant_tasks = get_relevant_task()
-    total_df = total_df.loc[(total_df['tasks'] == relevant_tasks[0]) | (total_df['tasks'] == relevant_tasks[1]) | (
-            total_df['tasks'] == relevant_tasks[2])]
+    relevant_tasks = list(specific_tasks.keys()) if allData else get_relevant_task()
+    total_df = total_df.loc[total_df['tasks'].isin(relevant_tasks)] #filter just relevant tasks
     total_df = update_names(relevant_tasks, total_df)
     total_df = update_neg_values(total_df, relevant_tasks)
     total_df['result'] = pd.to_numeric(total_df['result'])
     total_df = total_df.sort_values(by=['values'], ascending=False)
     total_df = total_df.rename({"result": "Difference in Expected Layers"}, axis='columns')
+    ordered_tasks_list = order_tasks(total_df)
+
+    def task_sorter(column):
+        correspondence = {task: order for order, task in enumerate(ordered_tasks_list)}
+        return column.map(correspondence)
+
+    total_df = total_df.sort_values(by='tasks', key=task_sorter)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 12,
-          'axes.titlesize': 33, 'xtick.labelsize': 13, 'ytick.labelsize': 12}
+    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 9,
+          'axes.titlesize': 33, 'xtick.labelsize': 4, 'ytick.labelsize': 12}
     sns.set(rc=rc)
     lnp = sns.barplot(x='tasks', y='Difference in Expected Layers', data=total_df, hue="values", palette="colorblind")
     plt.ylabel('Difference in $\mathbb{E}_{layer}$')
     plt.gca().legend().set_title('')
     plt.xlabel('Tasks')
+    plt.ylabel('$\mathbb{E}_{layer}$ Difference')
+
+    plt.xticks(rotation=45)
     plt.savefig('./figures/ ' + fig_name + '.png', bbox_inches='tight', dpi=300)
 
 def plot_diffs_max_min(diffs_max_min):
     import math
     def relevant_sub_df(diffs_max_min, task):
         diffs_max_min_df = pd.DataFrame(diffs_max_min)
-        diffs_max_min_df['task_order'] = diffs_max_min_df.index
-        sub_df = pd.DataFrame(diffs_max_min_df[['task_order', task]])
+        diffs_max_min_df['Task Order'] = diffs_max_min_df.index
+        sub_df = pd.DataFrame(diffs_max_min_df[['Task Order', task]])
         sub_df['task'] = task
-        sub_df = sub_df.rename(columns={task: 'diff between exp layers'})
-        sub_df = sub_df.loc[sub_df['diff between exp layers'] == sub_df['diff between exp layers']] #to get rid of None
+        sub_df = sub_df.rename(columns={task: 'Difference between $\mathbb{E}_{layer}$'})
+        sub_df = sub_df.loc[sub_df['Difference between $\mathbb{E}_{layer}$'] == sub_df['Difference between $\mathbb{E}_{layer}$']] #to get rid of None
+        seperate_tasks = task.split('-')
+        sub_df['left task'] = seperate_tasks[0]
+        sub_df['right task'] = seperate_tasks[1]
         return sub_df
 
     def get_new_df(diffs_max_min):
-        new_df = pd.DataFrame(columns=['diff between exp layers', 'task'])
+        new_df = pd.DataFrame(columns=['Difference between $\mathbb{E}_{layer}$', 'task', 'left task', 'right task'])
         diffs_max_min_df = pd.DataFrame(diffs_max_min)
         for task in diffs_max_min_df.columns:
             new_df = new_df.append(relevant_sub_df(diffs_max_min_df, task))
         return new_df
 
+    def order_tasks(total_df):
+        task_pair_list = list(set([elem for elem in total_df['task']]))
+        changed = []
+        unchaged = []
+        for task_pair in task_pair_list:
+            tmp = total_df.loc[total_df['task'] == task_pair]
+            if float(tmp['Difference between $\mathbb{E}_{layer}$'][0]) * float(tmp['Difference between $\mathbb{E}_{layer}$'][1]) < 0:
+                changed.append(task_pair)
+            else:
+                unchaged.append(task_pair)
+        ordered_tasks_list = changed + unchaged
+        return ordered_tasks_list
+
     new_df = get_new_df(diffs_max_min)
+    new_df = get_new_df(diffs_max_min)
+    ordered_tasks_list = order_tasks(new_df)
+
+    def task_sorter(column):
+        correspondence = {task: order for order, task in enumerate(ordered_tasks_list)}
+        return column.map(correspondence)
+
+    new_df = new_df.sort_values(by='task', key=task_sorter)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 5,
-          'axes.titlesize': 33, 'xtick.labelsize': 13, 'ytick.labelsize': 13}
+    rc = {'font.size': 10, 'axes.labelsize': 13, 'legend.fontsize': 5,
+          'axes.titlesize': 33, 'xtick.labelsize': 4, 'ytick.labelsize': 13}
     sns.set(rc=rc)
-    lnp = sns.barplot(x="task_order", y='diff between exp layers', data=new_df, hue="task",
-                      palette="hot", )
+    new_df_changed = new_df.rename(columns={'task': 'Task Pair'}, inplace=False)
+    lnp = sns.barplot(x="Task Pair", y='Difference between $\mathbb{E}_{layer}$', data=new_df_changed, hue="Task Order",
+                      palette="colorblind", )
     axes = lnp.axes
-    axes.set_xlim(-0.5, 2.3)
+    # axes.set_xlim(-0.5, 2.3)
     axes.set_ylim(-4.4, 2.7)
     plt.gca().legend().set_title('')
+    plt.xticks(rotation=45)
+    plt.xlabel('Task-Pairs')
+    plt.ylabel('$\mathbb{E}_{layer}$ Difference')
     plt.savefig('./figures/max_min.png', bbox_inches='tight', dpi=300)
 
 def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_simple, specific_span_complex, ylim_max):
     def relevant_sub_df(df, task):
         span_df = pd.DataFrame(span_dict)
-        span_df['CL Ranges'] = span_df.index
-        sub_df = pd.DataFrame(span_df[['CL Ranges', task]])
+        span_df['Context Length Ranges'] = span_df.index
+        sub_df = pd.DataFrame(span_df[['Context Length Ranges', task]])
         sub_df['task'] = task
         sub_df = sub_df.rename(columns={task: 'Expected Layer'})
         sub_df = sub_df.loc[sub_df['Expected Layer'] == sub_df['Expected Layer']]
@@ -278,27 +346,29 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
         return new_df
 
     def get_special_name(task, span):
-        return task + ' (CL$\in$' + span + ')'
+        return task + ' (Context Length$\in$' + span + ')'
 
     new_df = get_new_df(span_dict)
     new_df = new_df.loc[(new_df['task'] == simple_task) | (new_df['task'] == complex_task)]
     new_df = new_df.append(
-        {'task': get_special_name(complex_task, specific_span_complex), 'CL Ranges': 'CL\n distribution',
+        {'task': get_special_name(complex_task, specific_span_complex),
+         'Context Length Ranges': 'Context Length\n Distribution',
          'Expected Layer': span_dict[complex_task][specific_span_complex]}, ignore_index=True)
     new_df = new_df.append(
-        {'task': get_special_name(simple_task, specific_span_simple), 'CL Ranges': 'CL\n distribution',
+        {'task': get_special_name(simple_task, specific_span_simple),
+         'Context Length Ranges': 'Context Length\n Distribution',
          'Expected Layer': span_dict[simple_task][specific_span_simple]}, ignore_index=True)
     plt.figure(figsize=(16, 9))
     sns.set(style='darkgrid', )
-    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 9.5,
+    rc = {'font.size': 10, 'axes.labelsize': 15, 'legend.fontsize': 7.5,
           'axes.titlesize': 33, 'xtick.labelsize': 10, 'ytick.labelsize': 10}
     sns.set(rc=rc)
-    ax = sns.barplot(x='CL Ranges', y='Expected Layer', data=new_df, hue="task",
+    ax = sns.barplot(x='Context Length Ranges', y='Expected Layer', data=new_df, hue="task",
                      palette="colorblind", )
     plt.gca().legend().set_title('')
     trans = mtrans.Affine2D().translate(50, 0)
     for t in ax.get_xticklabels():
-        if 'CL' in t._text:
+        if 'Context Length' in t._text:
             # t.set_rotation(20)
             t.set_transform(t.get_transform() + mtrans.Affine2D().translate(60, 0))
         else:
@@ -306,6 +376,4 @@ def plot_sympson_paradox(span_dict, simple_task, complex_task, specific_span_sim
     plt.ylabel('$\mathbb{E}_{layer}$')
     ax.set_ylim(0, ylim_max)
     plt.savefig('./figures/simpson_' + simple_task + '_' + complex_task + '.png', bbox_inches='tight', dpi=300)
-
-
 
