@@ -1,6 +1,7 @@
 # BERT-context-distance
 
-
+This is the implementation of the different experiments described in the paper:
+> Aviv Slobodkin, Leshem Choshen, Omri Abend [Mediators in Determining what Processing BERT Performs First](https://aclanthology.org/2021.naacl-main.8/) In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies
 ## 1. Install
 Let's start with making sure you have the full repository, including all the git submodules.
 
